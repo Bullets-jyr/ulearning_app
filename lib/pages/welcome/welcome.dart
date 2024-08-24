@@ -9,21 +9,36 @@ class Welcome extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          Positioned(
+          PageView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              Container(
+                width: 345,
+                height: 345,
+                child: Image.asset('assets/images/reading.png'),
+              ),
+              Container(
+                width: 345,
+                height: 345,
+                child: Image.asset('assets/images/reading.png'),
+              ),
+            ],
+          ),
+          const Positioned(
             child: Text(
               'Widget one',
             ),
-            // bottom: 100,
-            // left: 20,
+            left: 20,
+            bottom: 100,
           ),
-          Positioned(
+          const Positioned(
             child: Text(
-              'Widget one',
+              'Widget two',
               style: TextStyle(
-                fontSize: 50,
+                fontSize: 30,
               ),
             ),
-            bottom: 200,
+            top: 100,
             left: 200,
           ),
         ],
