@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final appCount = Provider<int>((ref) {
-  return 1;
+final appCount = StateProvider<int>((ref) {
+  return 3;
 });
 
 class MyHomePage extends ConsumerWidget {
@@ -58,7 +58,7 @@ class MyHomePage extends ConsumerWidget {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$count',
+              count.toString(),
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
@@ -66,7 +66,7 @@ class MyHomePage extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          count++;
+          ref.read(appCount.notifier).state--;
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
@@ -74,3 +74,13 @@ class MyHomePage extends ConsumerWidget {
     );
   }
 }
+
+class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
