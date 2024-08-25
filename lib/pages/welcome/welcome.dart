@@ -22,9 +22,14 @@ class Welcome extends StatelessWidget {
               ),
               // second page
               appOnboardingPage(
-                imagePath: 'assets/images/reading.png',
-                title: 'First See Learning',
-                subTitle: '',
+                imagePath: 'assets/images/man.png',
+                title: 'Connect With Everyone',
+                subTitle: 'Always keep in touch with your tutor and friends. Let\'s get connected',
+              ),
+              appOnboardingPage(
+                imagePath: 'assets/images/boy.png',
+                title: 'Always Fascinated Learning',
+                subTitle: 'Anywhere, anytime. The time is at your discretion. So study wherever you can',
               ),
             ],
           ),
