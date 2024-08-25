@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ulearning_app/common/widgets/text_widgets.dart';
+import 'package:ulearning_app/pages/welcome/widgets.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -12,15 +14,17 @@ class Welcome extends StatelessWidget {
           PageView(
             scrollDirection: Axis.horizontal,
             children: [
-              Container(
-                width: 345,
-                height: 345,
-                child: Image.asset('assets/images/reading.png'),
+              // first page
+              appOnboardingPage(
+                imagePath: 'assets/images/reading.png',
+                title: 'First See Learning',
+                subTitle: 'Forget about the paper, now learning all in one place',
               ),
-              Container(
-                width: 345,
-                height: 345,
-                child: Image.asset('assets/images/reading.png'),
+              // second page
+              appOnboardingPage(
+                imagePath: 'assets/images/reading.png',
+                title: 'First See Learning',
+                subTitle: '',
               ),
             ],
           ),
@@ -30,16 +34,6 @@ class Welcome extends StatelessWidget {
             ),
             left: 20,
             bottom: 100,
-          ),
-          const Positioned(
-            child: Text(
-              'Widget two',
-              style: TextStyle(
-                fontSize: 30,
-              ),
-            ),
-            top: 100,
-            left: 200,
           ),
         ],
       ),
