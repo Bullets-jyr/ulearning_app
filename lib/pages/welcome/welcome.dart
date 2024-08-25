@@ -35,7 +35,7 @@ class Welcome extends StatelessWidget {
           ),
           const Positioned(
             child: Text(
-              'Widget one',
+              '',
             ),
             left: 20,
             bottom: 100,

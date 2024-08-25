@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 
 Widget appOnboardingPage({
@@ -25,6 +26,17 @@ Widget appOnboardingPage({
           text: subTitle,
         ),
       ),
+      _nextButton(),
     ],
+  );
+}
+
+Widget _nextButton() {
+  return Container(
+    width: 325,
+    height: 50,
+    // color: Colors.blue,
+    margin: const EdgeInsets.only(top: 100, left: 25, right: 25),
+    decoration: appBoxShadow(),
   );
 }
