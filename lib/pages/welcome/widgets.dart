@@ -3,10 +3,12 @@ import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 
-Widget appOnboardingPage({
+Widget appOnboardingPage(
+  PageController controller, {
   String imagePath = 'assets/images/reading.png',
   String title = '',
   String subTitle = '',
+  int index = 0,
 }) {
   return Column(
     children: [
@@ -27,21 +29,37 @@ Widget appOnboardingPage({
           text: subTitle,
         ),
       ),
-      _nextButton(),
+      _nextButton(
+        index,
+        controller,
+      ),
     ],
   );
 }
 
-Widget _nextButton() {
-  return Container(
-    width: 325,
-    height: 50,
-    // color: Colors.blue,
-    margin: const EdgeInsets.only(top: 100, left: 25, right: 25),
-    decoration: appBoxShadow(),
-    child: text16Normal(
-      text: 'next',
-      color: Colors.white,
+Widget _nextButton(int index, PageController controller) {
+  return GestureDetector(
+    onTap: () {
+      if (index < 3) {
+        controller.animateToPage(
+          index,
+          duration: Duration(milliseconds: 300),
+          curve: Curves.bounceIn,
+        );
+      }
+    },
+    child: Container(
+      width: 325,
+      height: 50,
+      // color: Colors.blue,
+      margin: const EdgeInsets.only(top: 100, left: 25, right: 25),
+      decoration: appBoxShadow(),
+      child: Center(
+        child: text16Normal(
+          text: 'next',
+          color: Colors.white,
+        ),
+      ),
     ),
   );
 }
