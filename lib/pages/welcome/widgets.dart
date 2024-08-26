@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 
@@ -43,7 +42,7 @@ Widget _nextButton(int index, PageController controller) {
       if (index < 3) {
         controller.animateToPage(
           index,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.bounceIn,
         );
       }
