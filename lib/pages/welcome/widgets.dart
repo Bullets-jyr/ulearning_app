@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 
@@ -38,5 +39,9 @@ Widget _nextButton() {
     // color: Colors.blue,
     margin: const EdgeInsets.only(top: 100, left: 25, right: 25),
     decoration: appBoxShadow(),
+    child: text16Normal(
+      text: 'next',
+      color: Colors.white,
+    ),
   );
 }
