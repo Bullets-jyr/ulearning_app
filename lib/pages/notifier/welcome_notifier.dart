@@ -8,4 +8,8 @@ class IndexDot extends _$IndexDot {
   int build() {
     return 0;
   }
+
+  void changeIndex(int value) {
+    state = value;
+  }
 }
