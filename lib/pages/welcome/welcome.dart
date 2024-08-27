@@ -1,26 +1,38 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/pages/welcome/widgets.dart';
 
-class Welcome extends StatelessWidget {
-  const Welcome({super.key});
+final indexProvider = StateProvider<int>((ref) => 0);
+
+class Welcome extends ConsumerWidget {
+  Welcome({super.key});
+
+  final PageController _controller = PageController();
+  int dotsIndex = 0;
 
   @override
-  Widget build(BuildContext context) {
-    final PageController _controller = PageController();
+  Widget build(BuildContext context, WidgetRef ref) {
+    print('my dots value is $dotsIndex');
+    final index = ref.watch(indexProvider);
     return Container(
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
           body: Container(
-            margin: EdgeInsets.only(top: 30),
+            margin: EdgeInsets.only(top: 30.h),
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
                 // showing our three welcome pages
                 PageView(
+                  onPageChanged: (value) {
+                    print('----my index value is $value');
+                    dotsIndex = value;
+                    ref.read(indexProvider.notifier).state = value;
+                  },
                   controller: _controller,
                   scrollDirection: Axis.horizontal,
                   children: [
@@ -48,13 +60,14 @@ class Welcome extends StatelessWidget {
                 Positioned(
                   bottom: 10,
                   child: DotsIndicator(
+                    position: index,
                     dotsCount: 3,
                     mainAxisAlignment: MainAxisAlignment.center,
                     decorator: DotsDecorator(
                       size: const Size.square(9.0),
                       activeSize: const Size(24.0, 8.0),
                       activeShape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(5.w),
                       ),
                     ),
                   ),
