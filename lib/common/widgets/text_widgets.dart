@@ -45,3 +45,21 @@ Widget text14Normal({
     ),
   );
 }
+
+Widget textUnderline({String text = 'Your text'}) {
+  return GestureDetector(
+    onTap: () {
+
+    },
+    child: Text(
+      text,
+      style: TextStyle(
+        fontWeight: FontWeight.normal,
+        fontSize: 12,
+        color: AppColors.primaryText,
+        decoration: TextDecoration.underline,
+        decorationColor: AppColors.primaryText,
+      ),
+    ),
+  );
+}
