@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_textfields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
+import 'package:ulearning_app/pages/sign_up/notifier/register_notifier.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends ConsumerWidget {
   const SignUp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final regProvider = ref.watch(registerNotifierProvider);
     return Container(
       color: Colors.white,
       child: SafeArea(
