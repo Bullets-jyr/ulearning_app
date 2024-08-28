@@ -8,6 +8,7 @@ Widget appTextField({
   String iconName = '',
   String hintText = 'Type in your info',
   bool obscureText = false,
+  void Function(String value)? func,
 }) {
   return Container(
     padding: EdgeInsets.only(left: 25, right: 25),
@@ -36,6 +37,7 @@ Widget appTextField({
                 width: 280,
                 height: 50,
                 child: TextField(
+                  onChanged: (value) => func!(value),
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: hintText,
@@ -61,7 +63,6 @@ Widget appTextField({
                       ),
                     ),
                   ),
-                  onChanged: (value) {},
                   maxLines: 1,
                   autocorrect: false,
                   // by default it's false
