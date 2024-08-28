@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_textfields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +21,26 @@ class SignIn extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // top login buttons
-                thirdPartyLogin(),
+                SizedBox(
+                  height: 30.h,
+                ),
                 // more login options message
                 Center(
                   child: text14Normal(
-                    text: 'Or use your email account to login',
+                    text: 'Enter your details below & free sign up',
                   ),
                 ),
                 SizedBox(
                   height: 50,
+                ),
+                // user name text box
+                appTextField(
+                  text: 'User name',
+                  iconName: 'assets/icons/user.png',
+                  hintText: 'Enter your user name',
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 // email text box
                 appTextField(
@@ -50,28 +61,31 @@ class SignIn extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                // forgot text
-                Container(
-                  margin: EdgeInsets.only(left: 25),
-                  child: textUnderline(text: 'Forgot password'),
-                ),
-                SizedBox(
-                  height: 100,
-                ),
-                // app login button
-                Center(
-                  child: appButton(
-                    buttonName: 'Login',
-                  ),
+                // password text box
+                appTextField(
+                  text: 'Confirm Password',
+                  iconName: 'assets/icons/lock.png',
+                  hintText: 'Confirm your password',
+                  obscureText: true,
                 ),
                 SizedBox(
                   height: 20,
                 ),
+                // forgot text
+                Container(
+                  margin: EdgeInsets.only(left: 25),
+                  child: text14Normal(
+                    text: 'By creating an account you are agreeing with our terms and conditions',
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                ),
                 // app register button
                 Center(
                   child: appButton(
-                    buttonName: 'Register',
-                    isLogin: false,
+                    buttonName: 'Sign Up',
+                    isLogin: true,
                     context: context,
                   ),
                 ),
