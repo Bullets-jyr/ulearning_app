@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
 
 class SignIn extends StatelessWidget {
@@ -12,10 +13,15 @@ class SignIn extends StatelessWidget {
         child: Scaffold(
           appBar: buildAppBar(),
           backgroundColor: Colors.white,
-          body: Center(
-            child: Text(
-              'Sign in page',
-            ),
+          body: Column(
+            children: [
+              // top login buttons
+              thirdPartyLogin(),
+              // more login options message
+              text14Normal(
+                text: 'Or use your email account to login',
+              ),
+            ],
           ),
         ),
       ),
