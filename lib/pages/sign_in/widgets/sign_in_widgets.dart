@@ -10,6 +10,7 @@ import 'package:ulearning_app/common/widgets/text_widgets.dart';
  */
 AppBar buildAppBar() {
   return AppBar(
+    // backgroundColor: Colors.white,
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(1),
       child: Container(
