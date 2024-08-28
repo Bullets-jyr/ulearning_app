@@ -10,16 +10,10 @@ Widget appButton({
   String buttonName = '',
   bool isLogin = true,
   BuildContext? context,
+  void Function()? func,
 }) {
   return GestureDetector(
-    onTap: () {
-      Navigator.push(
-        context!,
-        MaterialPageRoute(
-          builder: (context) => const SignUp(),
-        ),
-      );
-    },
+    onTap: func,
     child: Container(
       width: width,
       height: height,

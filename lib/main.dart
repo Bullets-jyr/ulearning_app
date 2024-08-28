@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_styles.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in.dart';
+import 'package:ulearning_app/pages/sign_up/sign_up.dart';
 import 'package:ulearning_app/pages/welcome/welcome.dart';
 
 void main() {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/": (context) => Welcome(),
           "/signIn": (context) => const SignIn(),
+          "/register": (context) => const SignUp(),
         },
         // home: Welcome(),
       ),
@@ -47,6 +49,7 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int count = ref.watch(appCount);
+    // myFunc();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -72,27 +75,34 @@ class MyHomePage extends ConsumerWidget {
           FloatingActionButton(
             heroTag: 'one',
             onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const SecondPage(),
-                ),
-              );
+              navRoute(context);
             },
             tooltip: 'Increment',
             child: const Icon(Icons.arrow_right_rounded),
           ),
           FloatingActionButton(
             heroTag: 'two',
-            onPressed: () {
-              ref.read(appCount.notifier).state++;
-            },
+            onPressed: () => ref.read(appCount.notifier).state++,
+            // onPressed: myFunc,
             tooltip: 'Increment',
-            child: const Icon(Icons.add),
+            child: Icon(Icons.add),
           )
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+void myFunc() {
+  print('Hello');
+}
+
+void navRoute(BuildContext context) {
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (BuildContext context) => const SecondPage(),
+    ),
+  );
 }
 
 class SecondPage extends ConsumerWidget {

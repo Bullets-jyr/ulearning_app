@@ -4,6 +4,7 @@ import 'package:ulearning_app/common/widgets/app_textfields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
+import 'package:ulearning_app/pages/sign_up/sign_up.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -73,6 +74,10 @@ class SignIn extends StatelessWidget {
                     buttonName: 'Register',
                     isLogin: false,
                     context: context,
+                    func: () => Navigator.pushNamed(
+                      context,
+                      '/register',
+                    ),
                   ),
                 ),
               ],
