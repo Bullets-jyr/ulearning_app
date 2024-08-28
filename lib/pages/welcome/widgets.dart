@@ -98,12 +98,16 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
           curve: Curves.linear,
         );
       } else {
-        Navigator.push(
+        Navigator.pushNamed(
           context,
-          MaterialPageRoute(
-            builder: (BuildContext context) => const SignIn(),
-          ),
+          '/signIn',
         );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (BuildContext context) => const SignIn(),
+        //   ),
+        // );
       }
     },
     child: Container(
