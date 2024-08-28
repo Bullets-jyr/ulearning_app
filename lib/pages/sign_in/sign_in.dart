@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
 
@@ -50,6 +51,25 @@ class SignIn extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(left: 25),
                 child: textUnderline(text: 'Forgot password'),
+              ),
+              SizedBox(
+                height: 100,
+              ),
+              // app login button
+              Center(
+                child: appButton(
+                  buttonName: 'Login',
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              // app register button
+              Center(
+                child: appButton(
+                  buttonName: 'Register',
+                  isLogin: false,
+                ),
               ),
             ],
           ),
