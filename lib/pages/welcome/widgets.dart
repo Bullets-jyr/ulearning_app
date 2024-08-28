@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
+import 'package:ulearning_app/pages/sign_in/sign_in.dart';
 
 class AppOnboardingPage extends StatelessWidget {
   final PageController controller;
@@ -44,6 +45,7 @@ class AppOnboardingPage extends StatelessWidget {
         _nextButton(
           index,
           controller,
+          context,
         ),
       ],
     );
@@ -51,7 +53,8 @@ class AppOnboardingPage extends StatelessWidget {
 }
 
 Widget appOnboardingPage(
-  PageController controller, {
+  PageController controller,
+  BuildContext context, {
   String imagePath = 'assets/images/reading.png',
   String title = '',
   String subTitle = '',
@@ -79,12 +82,13 @@ Widget appOnboardingPage(
       _nextButton(
         index,
         controller,
+        context,
       ),
     ],
   );
 }
 
-Widget _nextButton(int index, PageController controller) {
+Widget _nextButton(int index, PageController controller, BuildContext context) {
   return GestureDetector(
     onTap: () {
       if (index < 3) {
@@ -93,7 +97,14 @@ Widget _nextButton(int index, PageController controller) {
           duration: const Duration(milliseconds: 300),
           curve: Curves.linear,
         );
-      } else {}
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (BuildContext context) => const SignIn(),
+          ),
+        );
+      }
     },
     child: Container(
       width: 325,
