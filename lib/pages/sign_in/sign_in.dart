@@ -14,13 +14,22 @@ class SignIn extends StatelessWidget {
           appBar: buildAppBar(),
           backgroundColor: Colors.white,
           body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // top login buttons
               thirdPartyLogin(),
               // more login options message
-              text14Normal(
-                text: 'Or use your email account to login',
+              Center(
+                child: text14Normal(
+                  text: 'Or use your email account to login',
+                ),
               ),
+              SizedBox(height: 50,),
+              // email text box
+              appTextField(text: 'Email'),
+              SizedBox(height: 20,),
+              // password text box
+              appTextField(text: 'Password'),
             ],
           ),
         ),
