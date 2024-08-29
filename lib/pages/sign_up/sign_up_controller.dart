@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/widgets/popup_messages.dart';
 import 'package:ulearning_app/pages/sign_up/notifier/register_notifier.dart';
 
@@ -36,7 +37,9 @@ class SignUpController {
       return;
     }
 
-    if ((state.password.isEmpty || state.rePassword.isEmpty) || password.isEmpty || rePassword.isEmpty) {
+    if ((state.password.isEmpty || state.rePassword.isEmpty) ||
+        password.isEmpty ||
+        rePassword.isEmpty) {
       toastInfo('Your password is empty');
       return;
     }
@@ -46,27 +49,40 @@ class SignUpController {
       return;
     }
 
-    var context = Navigator.of(ref.context);
-    try {
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      if (kDebugMode) {
-        print(credential);
-      }
+    // show the loading icon
+    ref.read(appLoaderProvider.notifier).setLoaderValue(true);
+    Future.delayed(
+      Duration(seconds: 2),
+      () async {
+        var context = Navigator.of(ref.context);
+        try {
+          final credential =
+              await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: email,
+            password: password,
+          );
+          if (kDebugMode) {
+            print(credential);
+          }
 
-      if (credential.user != null) {
-        await credential.user?.sendEmailVerification();
-        await credential.user?.updateDisplayName(name);
-        // get server photo url
-        // set user photo url
-        toastInfo('Asn email has been to verity your account. Please open that email and confirm your identity');
-        context.pop();
-      }
-    } catch (e) {
+          if (credential.user != null) {
+            await credential.user?.sendEmailVerification();
+            await credential.user?.updateDisplayName(name);
+            // get server photo url
+            // set user photo url
+            toastInfo('Asn email has been to verity your account. Please open that email and confirm your identity');
+            context.pop();
+          }
+        } catch (e) {
+          if (kDebugMode) {
+            print(e.toString());
+          }
+          // ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
+        }
 
-    }
+        // show the register page
+        ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
+      },
+    );
   }
 }
