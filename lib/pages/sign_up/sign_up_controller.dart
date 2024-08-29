@@ -70,7 +70,7 @@ class SignUpController {
             await credential.user?.updateDisplayName(name);
             // get server photo url
             // set user photo url
-            toastInfo('Asn email has been to verity your account. Please open that email and confirm your identity');
+            toastInfo('Asn email has been sent to verity your account. Please open that email and confirm your identity');
             context.pop();
           }
         } catch (e) {
