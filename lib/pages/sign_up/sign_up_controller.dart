@@ -73,11 +73,19 @@ class SignUpController {
             toastInfo('Asn email has been sent to verity your account. Please open that email and confirm your identity');
             context.pop();
           }
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'weak-password') {
+            toastInfo('This password is too weak');
+          } else if (e.code == 'email-already-in-use') {
+            toastInfo('This email address has already been registered');
+          } else if (e.code == 'user-not-found') {
+            toastInfo('User not found');
+          }
+          // ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
         } catch (e) {
           if (kDebugMode) {
             print(e.toString());
           }
-          // ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
         }
 
         // show the register page
