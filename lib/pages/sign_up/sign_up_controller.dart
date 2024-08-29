@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ulearning_app/common/widgets/popup_messages.dart';
 import 'package:ulearning_app/pages/sign_up/notifier/register_notifier.dart';
 
 class SignUpController {
@@ -23,7 +24,7 @@ class SignUpController {
     print('Your rePassword is $rePassword');
     
     if (state.password != state.rePassword) {
-      print('your password does not match');
+      toastInfo('Your password did not match');
     }
   }
 }

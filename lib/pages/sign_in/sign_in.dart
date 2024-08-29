@@ -4,7 +4,6 @@ import 'package:ulearning_app/common/widgets/app_textfields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
-import 'package:ulearning_app/pages/sign_up/sign_up.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -15,7 +14,9 @@ class SignIn extends StatelessWidget {
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
-          appBar: buildAppBar(),
+          appBar: buildAppBar(
+            title: 'Login',
+          ),
           backgroundColor: Colors.white,
           body: SingleChildScrollView(
             child: Column(

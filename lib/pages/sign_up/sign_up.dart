@@ -32,7 +32,9 @@ class _SignUpState extends ConsumerState<SignUp> {
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
-          appBar: buildAppBar(),
+          appBar: buildAppBar(
+            title: 'Sign up',
+          ),
           backgroundColor: Colors.white,
           body: SingleChildScrollView(
             child: Column(
@@ -114,7 +116,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                 // app register button
                 Center(
                   child: appButton(
-                    buttonName: 'Sign Up',
+                    buttonName: 'Register',
                     isLogin: true,
                     context: context,
                     func: () => _controller.handleSignUp(),

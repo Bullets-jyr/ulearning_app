@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 
-AppBar buildAppBar() {
+AppBar buildAppBar({String title = ''}) {
   return AppBar(
     // backgroundColor: Colors.white,
     bottom: PreferredSize(
@@ -17,7 +17,7 @@ AppBar buildAppBar() {
       ),
     ),
     title: text16Normal(
-      text: 'Login',
+      text: title,
       color: AppColors.primaryText,
     ),
   );
