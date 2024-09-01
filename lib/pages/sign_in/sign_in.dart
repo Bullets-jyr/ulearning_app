@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_textfields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
+import 'package:ulearning_app/pages/sign_in/notifier/sign_in_notifier.dart';
+import 'package:ulearning_app/pages/sign_in/sign_in_controller.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends ConsumerStatefulWidget {
   const SignIn({super.key});
 
   @override
+  ConsumerState<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends ConsumerState<SignIn> {
+  late SignInController _controller;
+
+  @override
+  void initState() {
+    _controller = SignInController(ref);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final signInProvider = ref.watch(signInNotifierProvider);
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -64,6 +81,7 @@ class SignIn extends StatelessWidget {
                 Center(
                   child: appButton(
                     buttonName: 'Login',
+                    func: () => _controller.handleSignIn(),
                   ),
                 ),
                 SizedBox(
