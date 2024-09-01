@@ -30,7 +30,8 @@ class _SignInState extends ConsumerState<SignIn> {
   Widget build(BuildContext context) {
     final signInProvider = ref.watch(signInNotifierProvider);
     final loader = ref.watch(appLoaderProvider);
-    print(signInProvider.email);
+    // print(signInProvider.email);
+    // print(signInProvider.password);
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -57,6 +58,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       ),
                       // email text box
                       appTextField(
+                        controller: _controller.emailController,
                         text: 'Email',
                         iconName: 'assets/icons/user.png',
                         hintText: 'Enter your email address',
@@ -69,6 +71,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       ),
                       // password text box
                       appTextField(
+                        controller: _controller.passwordController,
                         text: 'Password',
                         iconName: 'assets/icons/lock.png',
                         hintText: 'Enter your password',
