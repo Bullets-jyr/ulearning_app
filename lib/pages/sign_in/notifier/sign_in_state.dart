@@ -17,3 +17,13 @@ class SignInState {
     );
   }
 }
+
+// void main() {
+//   SignInState state = SignInState();
+//   state.email = 'jyr@bullets.co.kr';
+//   SignInState myState = SignInState(
+//     email: 'jyr@bullets.co.kr',
+//     password: '123',
+//   );
+//   myState.password = '12';
+// }
