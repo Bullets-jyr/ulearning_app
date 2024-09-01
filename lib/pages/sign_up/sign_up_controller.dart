@@ -81,6 +81,7 @@ class SignUpController {
           } else if (e.code == 'user-not-found') {
             toastInfo('User not found');
           }
+          print(e.code);
           // ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
         } catch (e) {
           if (kDebugMode) {

@@ -35,14 +35,14 @@ class SignInController {
       return;
     }
     ref.read(appLoaderProvider.notifier).setLoaderValue(true);
-    print('0');
+    // print('0');
     try {
-      print('00');
+      // print('00');
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      print('1');
+      // print('1');
       if (credential.user == null) {
         toastInfo('User not found');
       }
@@ -52,9 +52,9 @@ class SignInController {
       }
 
       var user = credential.user;
-      print('3');
+      // print('3');
       if (user != null) {
-        print('5');
+        // print('5');
         String? displayName = user.displayName;
         String? email = user.email;
         String? id = user.uid;
@@ -67,7 +67,7 @@ class SignInController {
         loginRequestEntity.open_id = id;
         loginRequestEntity.type = 1;
         asyncPostAllData(loginRequestEntity);
-        print('user logged in');
+        // print('user logged in');
       } else {
         toastInfo('login error');
       }
@@ -77,6 +77,7 @@ class SignInController {
       } else if (e.code == 'wrong-password') {
         toastInfo('Your password is wrong');
       }
+      // print(e.code);
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());
