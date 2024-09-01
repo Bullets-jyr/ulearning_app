@@ -88,8 +88,10 @@ class SignInController {
   }
 
   void asyncPostAllData(LoginRequestEntity loginRequestEntity) {
-    // ref.read(appLoaderProvider.notifier).setLoaderValue(true);
+    // we need to talk to server
 
-    // ref.read(appLoaderProvider.notifier).setLoaderValue(false);
+    // have local storage
+
+    // redirect to new page
   }
 }
