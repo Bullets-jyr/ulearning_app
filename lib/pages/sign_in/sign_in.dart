@@ -55,6 +55,9 @@ class _SignInState extends ConsumerState<SignIn> {
                   text: 'Email',
                   iconName: 'assets/icons/user.png',
                   hintText: 'Enter your email address',
+                  func: (value) => ref
+                      .read(signInNotifierProvider.notifier)
+                      .onUserEmailChange(value),
                 ),
                 SizedBox(
                   height: 20,
@@ -65,6 +68,9 @@ class _SignInState extends ConsumerState<SignIn> {
                   iconName: 'assets/icons/lock.png',
                   hintText: 'Enter your password',
                   obscureText: true,
+                  func: (value) => ref
+                      .read(signInNotifierProvider.notifier)
+                      .onUserPasswordChange(value),
                 ),
                 SizedBox(
                   height: 20,

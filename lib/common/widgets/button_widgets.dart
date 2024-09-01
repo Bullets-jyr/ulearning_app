@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/sign_up/sign_up.dart';
 
 Widget appButton({
   double width = 325,
