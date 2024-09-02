@@ -7,6 +7,7 @@ import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/popup_messages.dart';
 import 'package:ulearning_app/global.dart';
+import 'package:ulearning_app/pages/application/application.dart';
 import 'package:ulearning_app/pages/sign_in/notifier/sign_in_notifier.dart';
 
 class SignInController {
@@ -100,18 +101,22 @@ class SignInController {
           .setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
       Global.storageService
           .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
-      // navigator.pushNamedAndRemoveUntil(
-      //   newRouteName,
-      //   predicate,
-      // );
-      navigator.push(
-        MaterialPageRoute(
-          builder: (BuildContext context) => Scaffold(
-            appBar: AppBar(),
-            body: Container(),
-          ),
-        ),
+
+      navigator.pushNamedAndRemoveUntil(
+        '/application',
+        (route) => false,
       );
+      // navigator.pushNamed(
+      //   '/application',
+      // );
+      // navigator.push(
+      //   MaterialPageRoute(
+      //     builder: (BuildContext context) => Scaffold(
+      //       appBar: AppBar(),
+      //       body: const Application(),
+      //     ),
+      //   ),
+      // );
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());
