@@ -20,4 +20,8 @@ class StorageService {
   bool getDeviceFirstOpen() {
     return _pref.getBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_KEY) ?? false;
   }
+
+  // bool? getDeviceFirstOpen() {
+  //   return _pref.getBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_KEY);
+  // }
 }

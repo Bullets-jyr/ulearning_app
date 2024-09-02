@@ -8,7 +8,7 @@ import 'package:ulearning_app/pages/sign_up/sign_up.dart';
 import 'package:ulearning_app/pages/welcome/welcome.dart';
 
 class AppPages {
-  static List<dynamic> routes() {
+  static List<RouteEntity> routes() {
     return [
       RouteEntity(
         path: AppRoutesNames.WELCOME,
@@ -36,11 +36,27 @@ class AppPages {
     if (settings.name != null) {
       var result =
       routes().where((element) => element.path == settings.name);
-      // if we used this is first time or not
-      bool deviceFirstTime = Global.storageService.getDeviceFirstOpen();
-      print(deviceFirstTime);
-      if (result.first.path == AppRoutesNames.WELCOME) {
+      // print(result.isNotEmpty);
 
+      if (result.isNotEmpty) {
+        // if we used this is first time or not
+        // bool? deviceFirstTime = Global.storageService.getDeviceFirstOpen();
+        bool deviceFirstTime = Global.storageService.getDeviceFirstOpen();
+
+        if (result.first.path == AppRoutesNames.WELCOME && deviceFirstTime) {
+          return MaterialPageRoute(
+            builder: (_) => SignIn(),
+            settings: settings,
+          );
+        } else {
+          if (kDebugMode) {
+            print('App ran first time');
+          }
+          return MaterialPageRoute(
+            builder: (_) => result.first.page,
+            settings: settings,
+          );
+        }
       }
     }
     // if (settings.name != null) {

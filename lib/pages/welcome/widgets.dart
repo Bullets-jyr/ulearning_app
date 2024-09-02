@@ -92,6 +92,9 @@ Widget appOnboardingPage(
 Widget _nextButton(int index, PageController controller, BuildContext context) {
   return GestureDetector(
     onTap: () {
+      // bool deviceFirstTime = Global.storageService.getDeviceFirstOpen();
+      //
+      // print('from tab ${deviceFirstTime}');
       if (index < 3) {
         controller.animateToPage(
           index,
@@ -104,7 +107,7 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
 
         Navigator.pushNamed(
           context,
-          '/signIn',
+          '/sign_in',
         );
         // Navigator.push(
         //   context,
