@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/routes/app_routes_names.dart';
+import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/utils/app_styles.dart';
 import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/pages/application/application.dart';
@@ -41,9 +42,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         title: 'Flutter Demo',
         theme: AppTheme.appThemeData,
-        initialRoute: '/',
-        routes: routesMap,
-        onGenerateRoute: () => RandomFunction(),
+        // initialRoute: '/',
+        // routes: routesMap,
+        onGenerateRoute: AppPages.generateRouteSettings,
         // home: Welcome(),
       ),
     );
