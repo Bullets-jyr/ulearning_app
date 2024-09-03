@@ -44,10 +44,19 @@ class AppPages {
         bool deviceFirstTime = Global.storageService.getDeviceFirstOpen();
 
         if (result.first.path == AppRoutesNames.WELCOME && deviceFirstTime) {
-          return MaterialPageRoute(
-            builder: (_) => SignIn(),
-            settings: settings,
-          );
+
+          bool isLoggedIn = Global.storageService.isLoggedIn();
+          if (isLoggedIn) {
+            return MaterialPageRoute(
+              builder: (_) => Application(),
+              settings: settings,
+            );
+          } else {
+            return MaterialPageRoute(
+              builder: (_) => SignIn(),
+              settings: settings,
+            );
+          }
         } else {
           if (kDebugMode) {
             print('App ran first time');
