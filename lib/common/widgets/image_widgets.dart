@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
 
 Widget appImage({
@@ -21,8 +22,8 @@ Widget appImageWithColor({
 }) {
   return Image.asset(
     imagePath.isEmpty ? 'assets/icons/user.png' : imagePath,
-    width: width,
-    height: height,
+    width: width.w,
+    height: height.h,
     color: color,
   );
 }
