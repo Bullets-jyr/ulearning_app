@@ -12,11 +12,12 @@ class Application extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int index = ref.watch(applicationNavNotifierProvider);
+
     return Container(
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
-          body: Container(),
+          body: appScreens(index: index),
           bottomNavigationBar: Container(
             width: 375.w,
             height: 58.h,
