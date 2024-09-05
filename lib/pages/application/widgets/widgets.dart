@@ -58,7 +58,7 @@ Widget bottomContainer({
     height: 15.w,
     child: appImageWithColor(
       imagePath: imagePath,
-      color: AppColors.primaryFourthElementText,
+      color: color,
     ),
   );
 }
