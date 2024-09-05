@@ -51,7 +51,7 @@ Widget bottomContainer({
   double width = 15,
   double height = 15,
   String imagePath = 'assets/icons/home.png',
-  Color color = AppColors.primaryElement,
+  Color color = AppColors.primaryFourthElementText,
 }) {
   return SizedBox(
     width: 15.w,
