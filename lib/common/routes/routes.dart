@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/routes/app_routes_names.dart';
+import 'package:ulearning_app/features/home/view/home.dart';
 import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/features/application/view/application.dart';
 import 'package:ulearning_app/features/sign_in/view/sign_in.dart';
@@ -16,15 +17,19 @@ class AppPages {
       ),
       RouteEntity(
         path: AppRoutesNames.SIGN_IN,
-        page: SignIn(),
+        page: const SignIn(),
       ),
       RouteEntity(
         path: AppRoutesNames.REGISTER,
-        page: SignUp(),
+        page: const SignUp(),
       ),
       RouteEntity(
         path: AppRoutesNames.APPLICATION,
-        page: Application(),
+        page: const Application(),
+      ),
+      RouteEntity(
+        path: AppRoutesNames.HOME,
+        page: const Home(),
       ),
     ];
   }
@@ -48,12 +53,12 @@ class AppPages {
           bool isLoggedIn = Global.storageService.isLoggedIn();
           if (isLoggedIn) {
             return MaterialPageRoute(
-              builder: (_) => Application(),
+              builder: (_) => const Application(),
               settings: settings,
             );
           } else {
             return MaterialPageRoute(
-              builder: (_) => SignIn(),
+              builder: (_) => const SignIn(),
               settings: settings,
             );
           }
