@@ -7,8 +7,7 @@ import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/popup_messages.dart';
 import 'package:ulearning_app/global.dart';
-import 'package:ulearning_app/pages/application/application.dart';
-import 'package:ulearning_app/pages/sign_in/notifier/sign_in_notifier.dart';
+import 'package:ulearning_app/features/sign_in/provider/sign_in_notifier.dart';
 
 class SignInController {
   WidgetRef ref;
