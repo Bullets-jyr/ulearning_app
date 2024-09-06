@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
 
 var bottomTabs = <BottomNavigationBarItem>[
@@ -14,10 +15,10 @@ var bottomTabs = <BottomNavigationBarItem>[
   ),
   BottomNavigationBarItem(
     icon: _bottomContainer(
-      imagePath: 'assets/icons/search2.png',
+      imagePath: ImageRes.search,
     ),
     activeIcon: _bottomContainer(
-      imagePath: 'assets/icons/search2.png',
+      imagePath: ImageRes.search,
       color: AppColors.primaryElement,
     ),
     backgroundColor: AppColors.primaryBackground,
@@ -25,10 +26,10 @@ var bottomTabs = <BottomNavigationBarItem>[
   ),
   BottomNavigationBarItem(
     icon: _bottomContainer(
-      imagePath: 'assets/icons/play-circle1.png',
+      imagePath: ImageRes.play,
     ),
     activeIcon: _bottomContainer(
-      imagePath: 'assets/icons/play-circle1.png',
+      imagePath: ImageRes.play,
       color: AppColors.primaryElement,
     ),
     backgroundColor: AppColors.primaryBackground,
@@ -36,10 +37,10 @@ var bottomTabs = <BottomNavigationBarItem>[
   ),
   BottomNavigationBarItem(
     icon: _bottomContainer(
-      imagePath: 'assets/icons/message-circle.png',
+      imagePath: ImageRes.message,
     ),
     activeIcon: _bottomContainer(
-      imagePath: 'assets/icons/message-circle.png',
+      imagePath: ImageRes.message,
       color: AppColors.primaryElement,
     ),
     backgroundColor: AppColors.primaryBackground,
@@ -47,10 +48,10 @@ var bottomTabs = <BottomNavigationBarItem>[
   ),
   BottomNavigationBarItem(
     icon: _bottomContainer(
-      imagePath: 'assets/icons/person2.png',
+      imagePath: ImageRes.profile,
     ),
     activeIcon: _bottomContainer(
-      imagePath: 'assets/icons/person2.png',
+      imagePath: ImageRes.profile,
       color: AppColors.primaryElement,
     ),
     backgroundColor: AppColors.primaryBackground,
@@ -61,7 +62,7 @@ var bottomTabs = <BottomNavigationBarItem>[
 Widget _bottomContainer({
   double width = 15,
   double height = 15,
-  String imagePath = 'assets/icons/home.png',
+  String imagePath = ImageRes.home,
   Color color = AppColors.primaryFourthElementText,
 }) {
   return SizedBox(
@@ -78,35 +79,35 @@ Widget appScreens({int index = 0}) {
   List<Widget> _screens = [
     Center(
       child: appImage(
-        imagePath: 'assets/icons/home.png',
+        imagePath: ImageRes.home,
         width: 250,
         height: 250,
       ),
     ),
     Center(
       child: appImage(
-        imagePath: 'assets/icons/search2.png',
+        imagePath: ImageRes.search,
         width: 250,
         height: 250,
       ),
     ),
     Center(
       child: appImage(
-        imagePath: 'assets/icons/play-circle1.png',
+        imagePath: ImageRes.play,
         width: 250,
         height: 250,
       ),
     ),
     Center(
       child: appImage(
-        imagePath: 'assets/icons/message-circle.png',
+        imagePath: ImageRes.message,
         width: 250,
         height: 250,
       ),
     ),
     Center(
       child: appImage(
-        imagePath: 'assets/icons/person2.png',
+        imagePath: ImageRes.profile,
         width: 250,
         height: 250,
       ),

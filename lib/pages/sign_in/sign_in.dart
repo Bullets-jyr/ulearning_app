@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_textfields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
@@ -53,42 +54,42 @@ class _SignInState extends ConsumerState<SignIn> {
                           text: 'Or use your email account to login',
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 50,
                       ),
                       // email text box
                       appTextField(
                         controller: _controller.emailController,
                         text: 'Email',
-                        iconName: 'assets/icons/user.png',
+                        iconName: ImageRes.user,
                         hintText: 'Enter your email address',
                         func: (value) => ref
                             .read(signInNotifierProvider.notifier)
                             .onUserEmailChange(value),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       // password text box
                       appTextField(
                         controller: _controller.passwordController,
                         text: 'Password',
-                        iconName: 'assets/icons/lock.png',
+                        iconName: ImageRes.lock,
                         hintText: 'Enter your password',
                         obscureText: true,
                         func: (value) => ref
                             .read(signInNotifierProvider.notifier)
                             .onUserPasswordChange(value),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       // forgot text
                       Container(
-                        margin: EdgeInsets.only(left: 25),
+                        margin: const EdgeInsets.only(left: 25),
                         child: textUnderline(text: 'Forgot password'),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 100,
                       ),
                       // app login button
@@ -98,7 +99,7 @@ class _SignInState extends ConsumerState<SignIn> {
                           func: () => _controller.handleSignIn(),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       // app register button
@@ -116,7 +117,7 @@ class _SignInState extends ConsumerState<SignIn> {
                     ],
                   ),
                 )
-              : Center(
+              : const Center(
                   child: CircularProgressIndicator(
                     backgroundColor: Colors.blue,
                     color: AppColors.primaryElement,

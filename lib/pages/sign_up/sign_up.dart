@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_textfields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
@@ -54,68 +55,68 @@ class _SignUpState extends ConsumerState<SignUp> {
                           text: 'Enter your details below & free sign up',
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 50,
                       ),
                       // user name text box
                       appTextField(
                         text: 'User name',
-                        iconName: 'assets/icons/user.png',
+                        iconName: ImageRes.user,
                         hintText: 'Enter your user name',
                         func: (value) => ref
                             .read(registerNotifierProvider.notifier)
                             .onUserNameChange(value),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       // email text box
                       appTextField(
                         text: 'Email',
-                        iconName: 'assets/icons/user.png',
+                        iconName: ImageRes.user,
                         hintText: 'Enter your email address',
                         func: (value) => ref
                             .read(registerNotifierProvider.notifier)
                             .onUserEmailChange(value),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       // password text box
                       appTextField(
                         text: 'Password',
-                        iconName: 'assets/icons/lock.png',
+                        iconName: ImageRes.lock,
                         hintText: 'Enter your password',
                         obscureText: true,
                         func: (value) => ref
                             .read(registerNotifierProvider.notifier)
                             .onUserPasswordChange(value),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       // password text box
                       appTextField(
                         text: 'Confirm Password',
-                        iconName: 'assets/icons/lock.png',
+                        iconName: ImageRes.lock,
                         hintText: 'Confirm your password',
                         obscureText: true,
                         func: (value) => ref
                             .read(registerNotifierProvider.notifier)
                             .onUserRePasswordChange(value),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       // forgot text
                       Container(
-                        margin: EdgeInsets.only(left: 25),
+                        margin: const EdgeInsets.only(left: 25),
                         child: text14Normal(
                           text:
                               'By creating an account you are agreeing with our terms and conditions',
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 100,
                       ),
                       // app register button
@@ -130,7 +131,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                     ],
                   ),
                 )
-              : Center(
+              : const Center(
                   child: CircularProgressIndicator(
                     backgroundColor: Colors.blue,
                     color: AppColors.primaryElement,
