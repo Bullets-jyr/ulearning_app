@@ -4,10 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/utils/app_styles.dart';
 import 'package:ulearning_app/global.dart';
-import 'package:ulearning_app/features/application/view/application.dart';
-import 'package:ulearning_app/features/sign_in/view/sign_in.dart';
-import 'package:ulearning_app/features/sign_up/view/sign_up.dart';
-import 'package:ulearning_app/features/welcome/view/welcome.dart';
 
 Future<void> main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -22,12 +18,12 @@ Future<void> main() async {
   );
 }
 
-var routesMap = {
-  "/": (context) => Welcome(),
-  "/signIn": (context) => const SignIn(),
-  "/register": (context) => const SignUp(),
-  "/application": (context) => const Application(),
-};
+// var routesMap = {
+//   "/": (context) => Welcome(),
+//   "/signIn": (context) => const SignIn(),
+//   "/register": (context) => const SignUp(),
+//   "/application": (context) => const Application(),
+// };
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

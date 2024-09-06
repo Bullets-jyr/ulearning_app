@@ -6,6 +6,7 @@ import 'package:ulearning_app/common/entities/user.dart';
 import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/popup_messages.dart';
+import 'package:ulearning_app/features/sign_in/repo/sign_in_repo.dart';
 import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/features/sign_in/provider/sign_in_notifier.dart';
 
@@ -40,10 +41,12 @@ class SignInController {
     // print('0');
     try {
       // print('00');
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      // final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      //   email: email,
+      //   password: password,
+      // );
+      final credential = await SignInRepo.firebaseSignIn(email, password);
+
       // print('1');
       if (credential.user == null) {
         toastInfo('User not found');
