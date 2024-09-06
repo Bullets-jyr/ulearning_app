@@ -18,6 +18,8 @@ Future<void> main() async {
   );
 }
 
+final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
+
 // var routesMap = {
 //   "/": (context) => Welcome(),
 //   "/signIn": (context) => const SignIn(),
@@ -34,6 +36,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
+        navigatorKey: navKey,
         title: 'Flutter Demo',
         theme: AppTheme.appThemeData,
         // initialRoute: '/',
