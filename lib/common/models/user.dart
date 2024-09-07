@@ -74,16 +74,21 @@ class UserProfile {
     this.type,
   });
 
-  factory UserProfile.fromJson(Map<String, dynamic> json) =>
-      UserProfile(
-        access_token: json["access_token"],
-        token: json["token"],
-        name: json["name"],
-        description: json["description"],
-        avatar: json["avatar"],
-        online: json["online"],
-        type: json["type"],
-      );
+  factory UserProfile.fromJson(Map<String, dynamic> json) {
+    // if ((json["access_token"]) == null) {
+    //   return UserProfile();
+    // }
+
+    return UserProfile(
+      access_token: json["access_token"],
+      token: json["token"],
+      name: json["name"],
+      description: json["description"],
+      avatar: json["avatar"],
+      online: json["online"],
+      type: json["type"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
     "access_token": access_token,
