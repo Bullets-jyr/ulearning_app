@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,11 +7,38 @@ import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/utils/app_styles.dart';
 import 'package:ulearning_app/global.dart';
 
+class MyInfo {
+  String name;
+  String email;
+  int age;
+
+  MyInfo(
+    this.name,
+    this.email,
+    this.age,
+  );
+}
+
 Future<void> main() async {
   // WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp(
   //   // options: DefaultFirebaseOptions.currentPlatform
   // );
+
+  // understanding json encode method
+  // var item = {
+  //   "name": "JiYoung",
+  //   "age": 34,
+  // };
+  // // From json to String
+  // var newItem = jsonEncode(item);
+  // print(item['name']);
+  // print(newItem[0]);
+  // var test = 'name';
+  // print(test[3]);
+  // MyInfo info = MyInfo('JiYoung', 'jyr@bullets.co.kr', 34);
+  // print(info.email);
+
   await Global.init();
   runApp(
     const ProviderScope(

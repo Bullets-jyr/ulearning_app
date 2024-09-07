@@ -12,6 +12,6 @@ class Global {
       options: DefaultFirebaseOptions.currentPlatform
     );
     storageService = await StorageService().init();
-    print('checking storage service');
+    // print('checking storage service');
   }
 }
