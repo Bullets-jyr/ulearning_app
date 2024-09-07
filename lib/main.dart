@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/utils/app_styles.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/global.dart';
 
 class MyInfo {
@@ -40,6 +41,13 @@ Future<void> main() async {
   // print(info.email);
 
   await Global.init();
+  var item = Global.storageService.getString(AppConstants.STORAGE_USER_PROFILE_KEY) ?? '';
+  print(item);
+
+  // From String to json
+  var newItem = jsonDecode(item);
+  print(newItem['email']);
+
   runApp(
     const ProviderScope(
       child: MyApp(),

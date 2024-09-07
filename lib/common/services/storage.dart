@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ulearning_app/common/models/entities.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 
 class StorageService {
@@ -31,5 +34,12 @@ class StorageService {
 
   bool isLoggedIn() {
     return _pref.getString(AppConstants.STORAGE_USER_PROFILE_KEY) != null ? true : false;
+  }
+
+  UserProfile getUserProfile() {
+    var profile = _pref.getString(AppConstants.STORAGE_USER_PROFILE_KEY) ?? '';
+    var profileJson = jsonDecode(profile);
+    var userProfile = UserProfile.fromJson(profileJson);
+    return userProfile;
   }
 }

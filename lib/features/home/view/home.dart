@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
               ),
               Container(
                 child: text24Normal(
-                  text: Global.storageService.getString(AppConstants.STORAGE_USER_PROFILE_KEY),
+                  text: Global.storageService.getUserProfile()['name'],
                   fontWeight: FontWeight.bold,
                 ),
               ),
