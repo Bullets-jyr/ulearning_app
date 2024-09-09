@@ -28,6 +28,10 @@ class Home extends StatelessWidget {
                 height: 20.h,
               ),
               searchBar(),
+              SizedBox(
+                height: 25.h,
+              ),
+              banner(),
             ],
           ),
         ),
