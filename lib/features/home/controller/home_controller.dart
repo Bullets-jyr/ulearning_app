@@ -6,4 +6,9 @@ part 'home_controller.g.dart';
 class HomeScreenBannerDots extends _$HomeScreenBannerDots {
   @override
   int build() => 0;
+
+  void setIndex(int value) {
+    state = value;
+    // print(state);
+  }
 }

@@ -1,11 +1,14 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
+import 'package:ulearning_app/features/home/controller/home_controller.dart';
 import 'package:ulearning_app/global.dart';
 
-Widget banner() {
+Widget banner({required WidgetRef ref}) {
   return Column(
     children: [
       // banner
@@ -14,7 +17,7 @@ Widget banner() {
         height: 160.h,
         child: PageView(
           onPageChanged: (index) {
-
+            ref.read(homeScreenBannerDotsProvider.notifier).setIndex(index);
           },
           children: [
             bannerContainer(
@@ -29,8 +32,22 @@ Widget banner() {
           ],
         ),
       ),
+      SizedBox(
+        height: 5.h,
+      ),
       // dots
-
+      DotsIndicator(
+        position: ref.watch(homeScreenBannerDotsProvider),
+        dotsCount: 3,
+        mainAxisAlignment: MainAxisAlignment.center,
+        decorator: DotsDecorator(
+          size: const Size.square(9.0),
+          activeSize: const Size(24.0, 8.0),
+          activeShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+        ),
+      ),
     ],
   );
 }

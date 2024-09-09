@@ -7,7 +7,7 @@ part of 'home_controller.dart';
 // **************************************************************************
 
 String _$homeScreenBannerDotsHash() =>
-    r'e027fe22e0184f6f22ac4899fed26ec9534d3e2d';
+    r'6f160360b5de63012efcc9a6d604af8e7070ae3f';
 
 /// See also [HomeScreenBannerDots].
 @ProviderFor(HomeScreenBannerDots)

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/search_widgets.dart';
 import 'package:ulearning_app/features/home/view/widgets/home_widget.dart';
 
-class Home extends StatelessWidget {
+class Home extends ConsumerWidget {
   const Home({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: buildAppBar(
         title: 'Home',
@@ -31,7 +32,9 @@ class Home extends StatelessWidget {
               SizedBox(
                 height: 25.h,
               ),
-              banner(),
+              banner(
+                ref: ref,
+              ),
             ],
           ),
         ),
