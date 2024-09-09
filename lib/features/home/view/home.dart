@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/common/utils/app_colors.dart';
-import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
-import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/global.dart';
+import 'package:ulearning_app/common/widgets/search_widgets.dart';
+import 'package:ulearning_app/features/home/view/widgets/home_widget.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -24,19 +22,12 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                child: text24Normal(
-                  text: 'Hello, ',
-                  color: AppColors.primaryThirdElementText,
-                  fontWeight: FontWeight.bold,
-                ),
+              helloText(),
+              userName(),
+              SizedBox(
+                height: 20.h,
               ),
-              Container(
-                child: text24Normal(
-                  text: Global.storageService.getUserProfile().name!,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              searchBar(),
             ],
           ),
         ),

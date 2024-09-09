@@ -41,12 +41,12 @@ Future<void> main() async {
   // print(info.email);
 
   await Global.init();
-  var item = Global.storageService.getString(AppConstants.STORAGE_USER_PROFILE_KEY) ?? '';
-  print(item);
+  // var item = Global.storageService.getString(AppConstants.STORAGE_USER_PROFILE_KEY) ?? '';
+  // print(item);
 
   // From String to json
-  var newItem = jsonDecode(item);
-  print(newItem['email']);
+  // var newItem = jsonDecode(item);
+  // print(newItem['email']);
 
   runApp(
     const ProviderScope(

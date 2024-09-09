@@ -8,19 +8,19 @@ BoxDecoration appBoxShadow({
   double radius = 15,
   double sR = 1,
   double bR = 2,
-  BoxBorder? border,
+  BoxBorder? boxBorder,
 }) {
   return BoxDecoration(
     color: color,
     // color: Colors.transparent,
     borderRadius: BorderRadius.circular(radius),
-    border: border,
+    border: boxBorder,
     boxShadow: [
       BoxShadow(
         color: Colors.grey.withOpacity(0.1),
         spreadRadius: sR,
         blurRadius: bR,
-        offset: Offset(0, 1),
+        offset: const Offset(0, 1),
       ),
     ],
   );
@@ -46,7 +46,7 @@ BoxDecoration appBoxShadowWithRadius({
         color: Colors.grey.withOpacity(0.1),
         spreadRadius: sR,
         blurRadius: bR,
-        offset: Offset(0, 1),
+        offset: const Offset(0, 1),
       ),
     ],
   );
