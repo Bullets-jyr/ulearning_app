@@ -29,10 +29,14 @@ Widget searchBar() {
                 imagePath: ImageRes.searchIcon,
               ),
             ),
-            Container(
-              width: 280.w,
+            SizedBox(
+              width: 240.w,
               height: 40.h,
-              child: appTextField(),
+              child: appTextFieldOnly(
+                width: 240,
+                height: 40,
+                hintText: 'Search your course...',
+              ),
             ),
           ],
         ),
