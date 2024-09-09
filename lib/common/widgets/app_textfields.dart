@@ -21,11 +21,11 @@ Widget appTextField({
           text: text,
         ),
         SizedBox(
-          height: 5,
+          height: 5.h,
         ),
         Container(
-          width: 325,
-          height: 50,
+          width: 325.w,
+          height: 50.h,
           // color: Colors.red,
           decoration: appBoxDecorationTextField(),
           // row contains icon and textfield
@@ -33,7 +33,7 @@ Widget appTextField({
             children: [
               // for showing icons
               Container(
-                margin: EdgeInsets.only(left: 17),
+                margin: EdgeInsets.only(left: 17.w),
                 child: appImage(imagePath: iconName),
               ),
               // our textfield
