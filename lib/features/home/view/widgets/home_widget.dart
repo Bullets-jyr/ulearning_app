@@ -9,6 +9,9 @@ import 'package:ulearning_app/features/home/controller/home_controller.dart';
 import 'package:ulearning_app/global.dart';
 
 Widget banner({required WidgetRef ref}) {
+  PageController _controller = PageController(
+    initialPage: ref.watch(homeScreenBannerDotsProvider),
+  );
   return Column(
     children: [
       // banner
@@ -16,6 +19,7 @@ Widget banner({required WidgetRef ref}) {
         width: 325.w,
         height: 160.h,
         child: PageView(
+          controller: _controller,
           onPageChanged: (index) {
             ref.read(homeScreenBannerDotsProvider.notifier).setIndex(index);
           },
