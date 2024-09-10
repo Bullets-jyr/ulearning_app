@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/features/welcome/provider/welcome_notifier.dart';
 import 'package:ulearning_app/features/welcome/view/widgets/widgets.dart';
 
@@ -37,28 +38,28 @@ class Welcome extends ConsumerWidget {
                   controller: _controller,
                   scrollDirection: Axis.horizontal,
                   children: [
-                    appOnboardingPage(
-                      _controller,
-                      context,
-                      imagePath: "assets/images/reading.png",
+                    AppOnboardingPage(
+                      controller: _controller,
+                      context: context,
+                      imagePath: ImageRes.reading,
                       title: "First See Learning",
                       subTitle:
                           "Forget about of paper all knowledge in one learning",
                       index: 1,
                     ),
-                    appOnboardingPage(
-                      _controller,
-                      context,
-                      imagePath: "assets/images/man.png",
+                    AppOnboardingPage(
+                      controller: _controller,
+                      context: context,
+                      imagePath: ImageRes.man,
                       title: "Connect With Everyone",
                       subTitle:
                           "Always keep in touch with your tutor and friends. Let's get connected",
                       index: 2,
                     ),
-                    appOnboardingPage(
-                      _controller,
-                      context,
-                      imagePath: "assets/images/boy.png",
+                    AppOnboardingPage(
+                      controller: _controller,
+                      context: context,
+                      imagePath: ImageRes.body,
                       title: "Always Fascinated Learning",
                       subTitle:
                           "Anywhere, anytime. The time is at your discretion. So study wherever you can",
