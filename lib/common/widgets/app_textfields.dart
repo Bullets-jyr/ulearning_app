@@ -13,11 +13,11 @@ Widget appTextField({
   void Function(String value)? func,
 }) {
   return Container(
-    padding: EdgeInsets.only(left: 25, right: 25),
+    padding: const EdgeInsets.only(left: 25, right: 25),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        text14Normal(
+        Text14Normal(
           text: text,
         ),
         SizedBox(

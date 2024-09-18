@@ -50,13 +50,16 @@ class _SignUpState extends ConsumerState<SignUp> {
                         height: 30.h,
                       ),
                       // more login options message
-                      Center(
-                        child: text14Normal(
+                      const Center(
+                        child: Text14Normal(
                           text: 'Enter your details below & free sign up',
                         ),
+                        // child: text14Normal(
+                        //   text: 'Enter your details below & free sign up',
+                        // ),
                       ),
-                      const SizedBox(
-                        height: 50,
+                      SizedBox(
+                        height: 50.h,
                       ),
                       // user name text box
                       appTextField(
@@ -111,7 +114,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                       // forgot text
                       Container(
                         margin: const EdgeInsets.only(left: 25),
-                        child: text14Normal(
+                        child: const Text14Normal(
                           text:
                               'By creating an account you are agreeing with our terms and conditions',
                         ),

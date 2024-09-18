@@ -32,27 +32,50 @@ Widget text16Normal({
   );
 }
 
-Widget text14Normal({
-  String text = '',
-  Color color = AppColors.primaryThirdElementText,
-}) {
-  return Text(
-    text,
-    // textAlign: TextAlign.center,
-    textAlign: TextAlign.start,
-    style: TextStyle(
-      color: color,
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-    ),
-  );
+// Widget text14Normal({
+//   String text = '',
+//   Color color = AppColors.primaryThirdElementText,
+// }) {
+//   return Text(
+//     text,
+//     // textAlign: TextAlign.center,
+//     textAlign: TextAlign.start,
+//     style: TextStyle(
+//       color: color,
+//       fontSize: 14,
+//       fontWeight: FontWeight.normal,
+//     ),
+//   );
+// }
+
+class Text14Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+
+  const Text14Normal({
+    super.key,
+    this.text = '',
+    this.color = AppColors.primaryThirdElementText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      // textAlign: TextAlign.center,
+      textAlign: TextAlign.start,
+      style: TextStyle(
+        color: color,
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
+    );
+  }
 }
 
 Widget textUnderline({String text = 'Your text'}) {
   return GestureDetector(
-    onTap: () {
-
-    },
+    onTap: () {},
     child: Text(
       text,
       style: TextStyle(
