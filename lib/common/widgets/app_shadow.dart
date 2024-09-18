@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 
 BoxDecoration appBoxShadow({
   Color color = AppColors.primaryElement,
@@ -64,4 +65,37 @@ BoxDecoration appBoxDecorationTextField({
       border: Border.all(
         color: borderColor,
       ));
+}
+
+class AppBoxDecorationImage extends StatelessWidget {
+  final double width;
+  final double height;
+  final String imagePath;
+
+  const AppBoxDecorationImage({
+    super.key,
+    this.width = 40,
+    this.height = 40,
+    this.imagePath = ImageRes.profile,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    print('my app bar');
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.fitHeight,
+          image: AssetImage(
+            imagePath,
+          ),
+        ),
+        borderRadius: BorderRadius.circular(
+          20.w,
+        ),
+      ),
+    );
+  }
 }
