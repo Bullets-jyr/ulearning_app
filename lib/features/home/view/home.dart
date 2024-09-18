@@ -34,9 +34,8 @@ class _HomeState extends ConsumerState<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(
-        title: 'Home',
-      ),
+      backgroundColor: Colors.white,
+      appBar: homeAppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 25.w,
@@ -46,6 +45,9 @@ class _HomeState extends ConsumerState<Home> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 20.h,
+              ),
               const HelloText(),
               const UserName(),
               SizedBox(
