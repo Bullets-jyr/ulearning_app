@@ -207,3 +207,30 @@ AppBar homeAppBar() {
     ),
   );
 }
+
+class HomeMenuBar extends StatelessWidget {
+  const HomeMenuBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: 15.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          const Text16Normal(
+            text: 'Choice your course',
+            color: AppColors.primaryText,
+            fontWeight: FontWeight.bold,
+          ),
+          GestureDetector(
+            child: Text10Normal(
+              text: 'See all',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
