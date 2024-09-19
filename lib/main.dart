@@ -45,12 +45,13 @@ Future<void> main() async {
   // From String to json
   // var newItem = jsonDecode(item);
   // print(newItem['email']);
-  var obj1 = HttpUtil();
-  var obj2 = HttpUtil();
-
-  if (obj1.hashCode == obj2.hashCode) {
-    print('I am the singleton class');
-  }
+  // var obj1 = HttpUtil();
+  // var obj2 = HttpUtil();
+  //
+  // if (obj1.hashCode == obj2.hashCode) {
+  //   print('I am the singleton class');
+  // }
+  HttpUtil().post('api/login');
 
   runApp(
     const ProviderScope(

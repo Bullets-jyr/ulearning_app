@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/global.dart';
 
 class HttpUtil {
@@ -13,7 +14,7 @@ class HttpUtil {
 
   HttpUtil._internal() {
     BaseOptions options = BaseOptions(
-      baseUrl: "https://rulearn.dbestech.com",
+      baseUrl: AppConstants.SERVER_API_URL,
       connectTimeout: const Duration(seconds: 5),
       receiveTimeout: const Duration(seconds: 5),
       headers: {},
@@ -41,6 +42,7 @@ class HttpUtil {
     Map<String, dynamic>? queryParameters,
     Options? options,
   }) async {
+    print('hit post method');
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
 
@@ -48,13 +50,14 @@ class HttpUtil {
     if (authorization != null) {
       requestOptions.headers!.addAll(authorization);
     }
-
+    print('done with header');
     var response = await dio.post(
       path,
       data: data,
       queryParameters: queryParameters,
       options: requestOptions,
     );
+    print('done with post ${response.data["message"]}');
     return response.data;
   }
 }
