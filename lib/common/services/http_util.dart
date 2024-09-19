@@ -33,4 +33,28 @@ class HttpUtil {
 
     return headers;
   }
+
+  Future post(
+    String path, {
+    // 실제로 데이터는 우리가 백엔드에 전달하려는 데이터입니다.
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
+    Options requestOptions = options ?? Options();
+    requestOptions.headers = requestOptions.headers ?? {};
+
+    Map<String, dynamic>? authorization = getAuthorizationHeader();
+    if (authorization != null) {
+      requestOptions.headers!.addAll(authorization);
+    }
+
+    var response = await dio.post(
+      path,
+      data: data,
+      queryParameters: queryParameters,
+      options: requestOptions,
+    );
+    return response.data;
+  }
 }
