@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:ulearning_app/global.dart';
 
 class HttpUtil {
   late Dio dio;
@@ -25,6 +26,10 @@ class HttpUtil {
 
   Map<String, dynamic>? getAuthorizationHeader() {
     var headers = <String, dynamic>{};
+    var accessToken = Global.storageService.getUserToken();
+    if (accessToken.isNotEmpty) {
+      headers['Authorization'] = 'Bearer $accessToken';
+    }
 
     return headers;
   }
