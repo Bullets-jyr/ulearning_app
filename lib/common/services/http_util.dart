@@ -23,6 +23,23 @@ class HttpUtil {
     );
 
     dio = Dio(options);
+
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) {
+          print('app request data ${options.data}');
+          return handler.next(options);
+        },
+        onResponse: (response, handler) {
+          print('app response data ${response.data}');
+          return handler.next(response);
+        },
+        onError: (DioException e, handler) {
+          print('app error data $e');
+          ErrorEntity eInfo = createErrorEntity(e);
+        },
+      ),
+    );
   }
 
   Map<String, dynamic>? getAuthorizationHeader() {
@@ -59,5 +76,51 @@ class HttpUtil {
     );
     print('done with post ${response.data["message"]}');
     return response.data;
+  }
+}
+
+class ErrorEntity implements Exception {
+  int code = -1;
+  String message = '';
+
+  ErrorEntity({
+    required this.code,
+    required this.message,
+  });
+
+  @override
+  String toString() {
+    if (message == '') return 'Exception';
+
+    return "Exception code $code, $message";
+  }
+}
+
+ErrorEntity createErrorEntity(DioException error) {
+  switch (error.type) {
+    case DioExceptionType.connectionTimeout:
+      return ErrorEntity(code: -1, message: 'Connection timed out');
+
+    case DioExceptionType.sendTimeout:
+      return ErrorEntity(code: -1, message: 'Send timed out');
+
+    case DioExceptionType.receiveTimeout:
+      return ErrorEntity(code: -1, message: 'Receive timed out');
+
+    case DioExceptionType.badCertificate:
+      return ErrorEntity(code: -1, message: 'Bad SSL certificates');
+
+    case DioExceptionType.badResponse:
+      print('bad response........');
+      return ErrorEntity(code: -1, message: 'Server bad response');
+
+    case DioExceptionType.cancel:
+      return ErrorEntity(code: -1, message: 'Server canceled it');
+
+    case DioExceptionType.connectionError:
+      return ErrorEntity(code: -1, message: 'Connection error');
+
+    case DioExceptionType.unknown:
+      return ErrorEntity(code: -1, message: 'Unknown error');
   }
 }
