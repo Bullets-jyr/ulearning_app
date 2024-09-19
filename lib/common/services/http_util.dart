@@ -22,4 +22,10 @@ class HttpUtil {
 
     dio = Dio(options);
   }
+
+  Map<String, dynamic>? getAuthorizationHeader() {
+    var headers = <String, dynamic>{};
+
+    return headers;
+  }
 }
