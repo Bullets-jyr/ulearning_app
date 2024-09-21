@@ -51,7 +51,16 @@ Future<void> main() async {
   // if (obj1.hashCode == obj2.hashCode) {
   //   print('I am the singleton class');
   // }
-  HttpUtil().post('api/login');
+  // HttpUtil().post(
+  //   'api/login',
+  //   queryParameters: {
+  //     'name': 'ahmed',
+  //     'email': 'a@a.com',
+  //     'avatar': 'xyz',
+  //     'open_id': 'shldjfhs',
+  //     'type': 2,
+  //   },
+  // );
 
   runApp(
     const ProviderScope(

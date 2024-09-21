@@ -8,7 +8,7 @@ class HttpUtil {
   static final HttpUtil _instance = HttpUtil._internal();
 
   factory HttpUtil() {
-    print('printing http instance');
+    // print('printing http instance');
     return _instance;
   }
 
@@ -31,7 +31,7 @@ class HttpUtil {
           return handler.next(options);
         },
         onResponse: (response, handler) {
-          // print('app response data ${response.data}');
+          print('app response data ${response.data}');
           return handler.next(response);
         },
         onError: (DioException e, handler) {
@@ -60,7 +60,7 @@ class HttpUtil {
     Map<String, dynamic>? queryParameters,
     Options? options,
   }) async {
-    print('hit post method');
+    // print('hit post method');
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
 
@@ -68,14 +68,14 @@ class HttpUtil {
     if (authorization != null) {
       requestOptions.headers!.addAll(authorization);
     }
-    print('done with header');
+    // print('done with header');
     var response = await dio.post(
       path,
       data: data,
       queryParameters: queryParameters,
       options: requestOptions,
     );
-    print('done with post ${response.data["message"]}');
+    // print('done with post ${response.data["message"]}');
     return response.data;
   }
 }
