@@ -98,52 +98,58 @@ class SignInController {
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
   }
 
-  void asyncPostAllData(LoginRequestEntity loginRequestEntity) {
+  void asyncPostAllData(LoginRequestEntity loginRequestEntity) async {
     // we need to talk to server
     // HttpUtil().post('api/login');
+    var result = await SignInRepo.login(params: loginRequestEntity);
+    if (result.code == 200) {
+      // have local storage
+      try {
+        // var navigator = Navigator.of(ref.context);
+        // try to remember user info
+        Global.storageService.setString(
+          AppConstants.STORAGE_USER_PROFILE_KEY,
+          jsonEncode(
+            result.data,
+            // {
+            //   "name": "JiYoung",
+            //   "email": "jyr@bullets.co.kr",
+            //   "age": 34,
+            // },
+          ),
+        );
+        Global.storageService.setString(
+          AppConstants.STORAGE_USER_TOKEN_KEY,
+          result.data!.access_token!,
+          // "123456",
+        );
 
-    // have local storage
-    try {
-      // var navigator = Navigator.of(ref.context);
-      // try to remember user info
-      Global.storageService.setString(
-        AppConstants.STORAGE_USER_PROFILE_KEY,
-        jsonEncode(
-          {
-            "name": "JiYoung",
-            "email": "jyr@bullets.co.kr",
-            "age": 34,
-          },
-        ),
-      );
-      Global.storageService
-          .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
-
-      // navigator.pushNamedAndRemoveUntil(
-      //   '/application',
-      //   (route) => false,
-      // );
-      navKey.currentState?.pushNamedAndRemoveUntil(
-        '/application',
-        (route) => false,
-      );
-      // navigator.pushNamed(
-      //   '/application',
-      // );
-      // navigator.push(
-      //   MaterialPageRoute(
-      //     builder: (BuildContext context) => Scaffold(
-      //       appBar: AppBar(),
-      //       body: const Application(),
-      //     ),
-      //   ),
-      // );
-    } catch (e) {
-      if (kDebugMode) {
-        print(e.toString());
+        // navigator.pushNamedAndRemoveUntil(
+        //   '/application',
+        //   (route) => false,
+        // );
+        navKey.currentState?.pushNamedAndRemoveUntil(
+          '/application',
+              (route) => false,
+        );
+        // navigator.pushNamed(
+        //   '/application',
+        // );
+        // navigator.push(
+        //   MaterialPageRoute(
+        //     builder: (BuildContext context) => Scaffold(
+        //       appBar: AppBar(),
+        //       body: const Application(),
+        //     ),
+        //   ),
+        // );
+      } catch (e) {
+        if (kDebugMode) {
+          print(e.toString());
+        }
       }
+    } else {
+      toastInfo('Login error');
     }
-
-    // redirect to new page
   }
 }
