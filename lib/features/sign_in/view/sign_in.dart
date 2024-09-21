@@ -77,6 +77,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       ),
                       // email text box
                       appTextField(
+                        // Fix sign in text field issues
                         controller: _controller.emailController,
                         text: 'Email',
                         iconName: ImageRes.user,
