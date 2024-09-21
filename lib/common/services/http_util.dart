@@ -35,7 +35,7 @@ class HttpUtil {
           return handler.next(response);
         },
         onError: (DioException e, handler) {
-          // print('app error data $e');
+          print('app error data $e');
           ErrorEntity eInfo = createErrorEntity(e);
           onError(eInfo);
         },
