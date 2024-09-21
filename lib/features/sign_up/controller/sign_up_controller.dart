@@ -71,6 +71,9 @@ class SignUpController {
           if (credential.user != null) {
             await credential.user?.sendEmailVerification();
             await credential.user?.updateDisplayName(name);
+            String photoUrl = 'uploads/default.png';
+            await credential.user?.updatePhotoURL(photoUrl);
+
             // get server photo url
             // set user photo url
             toastInfo('Asn email has been sent to verity your account. Please open that email and confirm your identity');

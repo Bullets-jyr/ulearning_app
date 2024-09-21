@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ulearning_app/common/models/entities.dart';
 import 'package:ulearning_app/common/services/http_util.dart';
@@ -15,6 +17,7 @@ class SignInRepo {
   static Future<UserLoginResponseEntity> login({
     LoginRequestEntity? params,
   }) async {
+    print('given info ${jsonEncode(params)}');
     var response = await HttpUtil().post(
       'api/login',
       queryParameters: params?.toJson(),
