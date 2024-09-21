@@ -27,16 +27,17 @@ class HttpUtil {
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) {
-          print('app request data ${options.data}');
+          // print('app request data ${options.data}');
           return handler.next(options);
         },
         onResponse: (response, handler) {
-          print('app response data ${response.data}');
+          // print('app response data ${response.data}');
           return handler.next(response);
         },
         onError: (DioException e, handler) {
-          print('app error data $e');
+          // print('app error data $e');
           ErrorEntity eInfo = createErrorEntity(e);
+          onError(eInfo);
         },
       ),
     );
@@ -112,6 +113,12 @@ ErrorEntity createErrorEntity(DioException error) {
 
     case DioExceptionType.badResponse:
       print('bad response........');
+      switch (error.response!.statusCode) {
+        case 400:
+          return ErrorEntity(code: 400, message: 'request syntax error');
+        case 401:
+          return ErrorEntity(code: 401, message: 'permission denied');
+      }
       return ErrorEntity(code: -1, message: 'Server bad response');
 
     case DioExceptionType.cancel:
@@ -122,5 +129,23 @@ ErrorEntity createErrorEntity(DioException error) {
 
     case DioExceptionType.unknown:
       return ErrorEntity(code: -1, message: 'Unknown error');
+  }
+}
+
+void onError(ErrorEntity eInfo) {
+  print('error.code -> ${eInfo.code}, error.message -> ${eInfo.message}');
+  switch (eInfo.code) {
+    case 400:
+      print('Server syntax error');
+      break;
+    case 401:
+      print('You are denied to continue');
+      break;
+    case 500:
+      print('Internal server error');
+      break;
+    default:
+      print('Unknown error');
+      break;
   }
 }
