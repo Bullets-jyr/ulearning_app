@@ -65,7 +65,7 @@ Future<void> main() async {
   //   },
   // );
 
-  HttpOverrides.global = MyHttpOverrides();
+  // HttpOverrides.global = MyHttpOverrides();
   runApp(
     const ProviderScope(
       child: MyApp(),

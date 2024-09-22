@@ -72,12 +72,14 @@ class AppBoxDecorationImage extends StatelessWidget {
   final double width;
   final double height;
   final String imagePath;
+  final BoxFit fit;
 
   const AppBoxDecorationImage({
     super.key,
     this.width = 40,
     this.height = 40,
     this.imagePath = ImageRes.profile,
+    this.fit = BoxFit.fitHeight,
   });
 
   @override
@@ -88,7 +90,7 @@ class AppBoxDecorationImage extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         image: DecorationImage(
-          fit: BoxFit.fitHeight,
+          fit: fit,
           image: NetworkImage(
             imagePath,
           ),
