@@ -28,8 +28,16 @@ class HomeUserProfile extends _$HomeUserProfile {
 @riverpod
 class HomeCourseList extends _$HomeCourseList {
   @override
-  // FutureOr<List<CourseItem>?> build() async {
-  Future<List<CourseItem>?> build() async {
+  FutureOr<List<CourseItem>?> build() async {
+  // Future<List<CourseItem>?> build() async {
+  //   var result = await CourseAPI.courseList();
+  //   if (result.code == 200) {
+  //     return result.data;
+  //   }
+    return _fetchCourseList();
+  }
+
+  Future<List<CourseItem>?> _fetchCourseList() async {
     var result = await CourseAPI.courseList();
     if (result.code == 200) {
       return result.data;
