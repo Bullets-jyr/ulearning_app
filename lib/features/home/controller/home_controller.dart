@@ -1,4 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:ulearning_app/common/api/course_api.dart';
+import 'package:ulearning_app/common/models/course_entities.dart';
 import 'package:ulearning_app/common/models/entities.dart';
 import 'package:ulearning_app/global.dart';
 
@@ -20,5 +22,18 @@ class HomeUserProfile extends _$HomeUserProfile {
   @override
   FutureOr<UserProfile> build() async {
     return Global.storageService.getUserProfile();
+  }
+}
+
+@riverpod
+class HomeCourseList extends _$HomeCourseList {
+  @override
+  // FutureOr<List<CourseItem>?> build() async {
+  Future<List<CourseItem>?> build() async {
+    var result = await CourseAPI.courseList();
+    if (result.code == 200) {
+      return result.data;
+    }
+    return null;
   }
 }
