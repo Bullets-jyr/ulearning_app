@@ -293,24 +293,29 @@ class HomeMenuBar extends StatelessWidget {
 }
 
 class CourseItemGrid extends StatelessWidget {
-  const CourseItemGrid({super.key});
+  final WidgetRef ref;
+
+  const CourseItemGrid({
+    super.key,
+    required this.ref,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: GridView.builder(
-        physics: ScrollPhysics(),
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: 40,
-          crossAxisSpacing: 40,
-        ),
-        itemCount: 6,
-        itemBuilder: (_, index) {
-          return appImage();
-        },
+    final courseState = ref.watch(homeCourseListProvider);
+    
+    return GridView.builder(
+      physics: const ScrollPhysics(),
+      shrinkWrap: true,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 40,
+        crossAxisSpacing: 40,
       ),
+      itemCount: 6,
+      itemBuilder: (_, index) {
+        return appImage();
+      },
     );
   }
 }
