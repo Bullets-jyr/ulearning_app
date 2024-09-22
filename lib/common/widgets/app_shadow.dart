@@ -89,7 +89,7 @@ class AppBoxDecorationImage extends StatelessWidget {
       decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fitHeight,
-          image: AssetImage(
+          image: NetworkImage(
             imagePath,
           ),
         ),

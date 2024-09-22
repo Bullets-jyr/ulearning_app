@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
@@ -187,7 +188,8 @@ class HelloText extends StatelessWidget {
 //   );
 // }
 
-AppBar homeAppBar() {
+AppBar homeAppBar(WidgetRef ref) {
+  var profileState = ref.watch(homeUserProfileProvider);
   return AppBar(
     title: Container(
       margin: EdgeInsets.only(left: 7.w),
@@ -199,9 +201,22 @@ AppBar homeAppBar() {
             width: 18.w,
             height: 12.h,
           ),
-          GestureDetector(
-            child: const AppBoxDecorationImage(),
+          profileState.when(
+            data: (value) => GestureDetector(
+              child: AppBoxDecorationImage(
+                imagePath: '${AppConstants.SERVER_API_URL}${value.avatar!}',
+              ),
+            ),
+            error: (err, stack) => appImage(
+              width: 18.w,
+              height: 12.h,
+              imagePath: ImageRes.profile,
+            ),
+            loading: () => Container(),
           ),
+          // GestureDetector(
+          //   child: const AppBoxDecorationImage(),
+          // ),
         ],
       ),
     ),
@@ -282,7 +297,7 @@ class CourseItemGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       child: GridView.builder(
         physics: ScrollPhysics(),
         shrinkWrap: true,
