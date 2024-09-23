@@ -319,9 +319,29 @@ class CourseItemGrid extends StatelessWidget {
           itemCount: data?.length,
           itemBuilder: (_, index) {
             return AppBoxDecorationImage(
-              imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${data![index].thumbnail}',
+              imagePath:
+                  '${AppConstants.IMAGE_UPLOADS_PATH}${data![index].thumbnail}',
               fit: BoxFit.fitWidth,
               courseItem: data[index],
+              func: () {
+                print('hello');
+                print(data[index].id);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return Scaffold(
+                        appBar: AppBar(),
+                        body: Center(
+                          child: Text(
+                            data[index].id.toString(),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
             );
           },
         ),
