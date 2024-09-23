@@ -34,10 +34,10 @@ class HomeCourseList extends _$HomeCourseList {
   //   if (result.code == 200) {
   //     return result.data;
   //   }
-    return _fetchCourseList();
+    return fetchCourseList();
   }
 
-  Future<List<CourseItem>?> _fetchCourseList() async {
+  Future<List<CourseItem>?> fetchCourseList() async {
     var result = await CourseAPI.courseList();
     if (result.code == 200) {
       return result.data;
