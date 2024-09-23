@@ -39,7 +39,7 @@ final homeUserProfileProvider =
 );
 
 typedef _$HomeUserProfile = AutoDisposeAsyncNotifier<UserProfile>;
-String _$homeCourseListHash() => r'ff15889831170045f51c0219f975f1cb9b368232';
+String _$homeCourseListHash() => r'de35e132b862abe475298116ab82577eaf28663d';
 
 /// See also [HomeCourseList].
 @ProviderFor(HomeCourseList)
