@@ -6,9 +6,10 @@ part 'course_detail_controller.g.dart';
 
 @riverpod
 Future<CourseItem?> courseDetailController(
-    CourseDetailControllerRef ref) async {
+    CourseDetailControllerRef ref, {required int index}) async {
+  // ref.watch(homeCourseListProvider);
   CourseRequestEntity courseRequestEntity = CourseRequestEntity();
-  courseRequestEntity.id = 1;
+  courseRequestEntity.id = index;
   final response =
       await CourseDetailRepo.courseDetail(params: courseRequestEntity);
   if (response.code == 200) {
