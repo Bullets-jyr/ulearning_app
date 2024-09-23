@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/widgets/app_shadow.dart';
 
 Widget text24Normal({
   String text = '',
@@ -144,6 +145,35 @@ class Text11Normal extends StatelessWidget {
         color: color,
         fontSize: 11,
         fontWeight: FontWeight.normal,
+      ),
+    );
+  }
+}
+
+class FadeText extends StatelessWidget {
+  final String text;
+  final Color color;
+  final double fontSize;
+
+  const FadeText({
+    super.key,
+    this.text = '',
+    this.color = AppColors.primaryElementText,
+    this.fontSize = 10,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      softWrap: false,
+      maxLines: 1,
+      textAlign: TextAlign.left,
+      overflow: TextOverflow.fade,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize,
+        fontWeight: FontWeight.bold,
       ),
     );
   }

@@ -267,20 +267,20 @@ class HomeMenuBar extends StatelessWidget {
                 top: 5.h,
                 bottom: 5.h,
               ),
-              child: const Text11Normal(
+              child: const FadeText(
                 text: 'All',
               ),
             ),
             Container(
               margin: EdgeInsets.only(left: 30.w),
-              child: const Text11Normal(
+              child: const FadeText(
                 text: 'Popular',
                 color: AppColors.primaryThirdElementText,
               ),
             ),
             Container(
               margin: EdgeInsets.only(left: 30.w),
-              child: const Text11Normal(
+              child: const FadeText(
                 text: 'Newest',
                 color: AppColors.primaryThirdElementText,
               ),
@@ -321,12 +321,13 @@ class CourseItemGrid extends StatelessWidget {
             return AppBoxDecorationImage(
               imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${data![index].thumbnail}',
               fit: BoxFit.fitWidth,
+              courseItem: data[index],
             );
           },
         ),
         error: (error, stackTrace) {
-          print(error.toString());
-          print(stackTrace.toString());
+          // print(error.toString());
+          // print(stackTrace.toString());
           return const Center(
             child: Text(
               'Error loading data',
