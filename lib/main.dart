@@ -71,6 +71,29 @@ Future<void> main() async {
       child: MyApp(),
     ),
   );
+
+  var person = Person('dbestech', 3);
+  // print(person.name);
+  var x = person(add: 'xyz');
+  print(person.address);
+}
+
+class Person {
+  String name;
+  int age;
+  String? address;
+
+  Person(
+    this.name,
+    this.age, {
+    this.address,
+  });
+
+  Person call({required String add}) {
+    // print(address);
+    address = add;
+    return this;
+  }
 }
 
 final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
