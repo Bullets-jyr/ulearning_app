@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/common/utils/constants.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
+import 'package:ulearning_app/common/widgets/image_widgets.dart';
+import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/features/course_detail/controller/course_detail_controller.dart';
 import 'package:ulearning_app/features/course_detail/view/widget/course_detail_widgets.dart';
 
@@ -44,6 +47,41 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
                 children: [
                   CourseDetailThumbnail(
                     courseItem: data,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 10.h),
+                    width: 325.w,
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 15.w,
+                              vertical: 5.h,
+                            ),
+                            decoration: appBoxShadow(
+                              radius: 7,
+                            ),
+                            child: const Text10Normal(
+                              text: 'Author Page',
+                              color: AppColors.primaryElementText,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: 30.w),
+                          child: Row(
+                            children: [
+                              Container(
+                                child: appImage(
+                                  imagePath: ImageRes.people,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

@@ -17,7 +17,9 @@ BoxDecoration appBoxShadow({
   return BoxDecoration(
     color: color,
     // color: Colors.transparent,
-    borderRadius: BorderRadius.circular(radius),
+    borderRadius: BorderRadius.circular(
+      radius.w,
+    ),
     border: boxBorder,
     boxShadow: [
       BoxShadow(
