@@ -327,7 +327,8 @@ class CourseItemGrid extends StatelessWidget {
                 Navigator.of(context).pushNamed(
                   '/course_detail',
                   arguments: {
-                    'id': data[index].id.toString(),
+                    'id': data[index].id,
+                    // 'id': 4,
                   },
                 );
                 // print('hello');

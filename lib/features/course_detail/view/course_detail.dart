@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
+import 'package:ulearning_app/common/widgets/app_bar.dart';
+import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/features/course_detail/controller/course_detail_controller.dart';
 
 class CourseDetail extends ConsumerStatefulWidget {
@@ -23,10 +26,31 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
 
   @override
   Widget build(BuildContext context) {
-    // var stateData = ref.watch(courseDetailControllerProvider(index: args.toInt()));
-    var stateData = ref.watch(courseDetailControllerProvider(index: int.parse(args)));
+    var stateData =
+        ref.watch(courseDetailControllerProvider(index: args.toInt()));
+    // var stateData =
+    //     ref.watch(courseDetailControllerProvider(index: int.parse(args)));
     return Scaffold(
-      appBar: AppBar(),
+      appBar: buildAppBar(
+        title: 'Course detail',
+      ),
+      body: stateData.when(
+        data: (data) => data == null
+            ? SizedBox()
+            : Column(
+                children: [
+                  AppBoxDecorationImage(
+                    imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${data.thumbnail}',
+                  ),
+                ],
+              ),
+        error: (error, traceStack) => const Text(
+          'Error loading the data',
+        ),
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
+      ),
     );
   }
 }
