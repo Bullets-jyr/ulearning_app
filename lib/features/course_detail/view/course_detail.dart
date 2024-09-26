@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/features/course_detail/controller/course_detail_controller.dart';
+import 'package:ulearning_app/features/course_detail/view/widget/course_detail_widgets.dart';
 
 class CourseDetail extends ConsumerStatefulWidget {
   const CourseDetail({super.key});
@@ -31,16 +33,17 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
     // var stateData =
     //     ref.watch(courseDetailControllerProvider(index: int.parse(args)));
     return Scaffold(
-      appBar: buildAppBar(
+      appBar: buildGlobalAppBar(
         title: 'Course detail',
       ),
       body: stateData.when(
         data: (data) => data == null
             ? SizedBox()
             : Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  AppBoxDecorationImage(
-                    imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${data.thumbnail}',
+                  CourseDetailThumbnail(
+                    courseItem: data,
                   ),
                 ],
               ),

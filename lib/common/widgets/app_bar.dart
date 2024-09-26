@@ -22,3 +22,12 @@ AppBar buildAppBar({String title = ''}) {
     ),
   );
 }
+
+AppBar buildGlobalAppBar({String title = ''}) {
+  return AppBar(
+    title: Text16Normal(
+      text: title,
+      color: AppColors.primaryText,
+    ),
+  );
+}
