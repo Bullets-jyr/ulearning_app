@@ -324,23 +324,29 @@ class CourseItemGrid extends StatelessWidget {
               fit: BoxFit.fitWidth,
               courseItem: data[index],
               func: () {
-                print('hello');
-                print(data[index].id);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return Scaffold(
-                        appBar: AppBar(),
-                        body: Center(
-                          child: Text(
-                            data[index].id.toString(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                Navigator.of(context).pushNamed(
+                  '/course_detail',
+                  arguments: {
+                    'id': data[index].id.toString(),
+                  },
                 );
+                // print('hello');
+                // print(data[index].id);
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (BuildContext context) {
+                //       return Scaffold(
+                //         appBar: AppBar(),
+                //         body: Center(
+                //           child: Text(
+                //             data[index].id.toString(),
+                //           ),
+                //         ),
+                //       );
+                //     },
+                //   ),
+                // );
               },
             );
           },
