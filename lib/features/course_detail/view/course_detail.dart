@@ -41,45 +41,15 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
       ),
       body: stateData.when(
         data: (data) => data == null
-            ? SizedBox()
+            ? const SizedBox()
             : Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CourseDetailThumbnail(
                     courseItem: data,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10.h),
-                    width: 325.w,
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 15.w,
-                              vertical: 5.h,
-                            ),
-                            decoration: appBoxShadow(
-                              radius: 7,
-                            ),
-                            child: const Text10Normal(
-                              text: 'Author Page',
-                              color: AppColors.primaryElementText,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 30.w),
-                          child: const Row(
-                            children: [
-                              AppImage(
-                                imagePath: ImageRes.people,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                  CourseDetailIconText(
+                    courseItem: data,
                   ),
                 ],
               ),
