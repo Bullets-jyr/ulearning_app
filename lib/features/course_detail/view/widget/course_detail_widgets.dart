@@ -18,14 +18,11 @@ class CourseDetailThumbnail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 0.h),
-      child: AppBoxDecorationImage(
-        imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${courseItem.thumbnail}',
-        width: 325.w,
-        height: 200.h,
-        fit: BoxFit.fitWidth,
-      ),
+    return AppBoxDecorationImage(
+      imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${courseItem.thumbnail}',
+      width: 325.w,
+      height: 200.h,
+      fit: BoxFit.fitWidth,
     );
   }
 }
@@ -69,7 +66,8 @@ class CourseDetailIconText extends StatelessWidget {
                 ),
                 Text11Normal(
                   // text: '0',
-                  text: '${courseItem.follow == null ? "0" : courseItem.follow.toString()}',
+                  text:
+                      '${courseItem.follow == null ? "0" : courseItem.follow.toString()}',
                   color: AppColors.primaryThirdElementText,
                 ),
               ],
@@ -84,10 +82,44 @@ class CourseDetailIconText extends StatelessWidget {
                 ),
                 Text11Normal(
                   // text: '0',
-                  text: '${courseItem.score == null ? "0" : courseItem.score.toString()}',
+                  text:
+                      '${courseItem.score == null ? "0" : courseItem.score.toString()}',
                   color: AppColors.primaryThirdElementText,
                 ),
               ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CourseDetailDescription extends StatelessWidget {
+  final CourseItem courseItem;
+
+  const CourseDetailDescription({
+    super.key,
+    required this.courseItem,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: 15.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text16Normal(
+            text: courseItem.name ?? 'No name found',
+            color: AppColors.primaryText,
+            textAlign: TextAlign.start,
+            fontWeight: FontWeight.bold,
+          ),
+          Container(
+            child: Text11Normal(
+              text: courseItem.description ?? 'No description found',
+              color: AppColors.primaryThirdElementText,
             ),
           ),
         ],

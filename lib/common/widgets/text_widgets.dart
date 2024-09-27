@@ -37,19 +37,21 @@ class Text16Normal extends StatelessWidget {
   final String text;
   final Color color;
   final FontWeight fontWeight;
+  final TextAlign? textAlign;
 
   const Text16Normal({
     super.key,
     this.text = '',
     this.color = AppColors.primarySecondaryElementText,
     this.fontWeight = FontWeight.normal,
+    this.textAlign = TextAlign.center,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       style: TextStyle(
         color: color,
         fontSize: 16,
