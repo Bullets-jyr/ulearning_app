@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
-import 'package:ulearning_app/features/course_detail/controller/course_detail_controller.dart';
+import 'package:ulearning_app/features/course_detail/controller/course_controller.dart';
 import 'package:ulearning_app/features/course_detail/view/widget/course_detail_widgets.dart';
 
 class CourseDetail extends ConsumerStatefulWidget {
@@ -26,48 +26,70 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
 
   @override
   Widget build(BuildContext context) {
-    var stateData =
+    var courseData =
         ref.watch(courseDetailControllerProvider(index: args.toInt()));
     // var stateData =
     //     ref.watch(courseDetailControllerProvider(index: int.parse(args)));
+
+    var lessonData =
+        ref.watch(courseLessonListControllerProvider(index: args.toInt()));
     return Scaffold(
       appBar: buildGlobalAppBar(
         title: 'Course detail',
       ),
-      body: stateData.when(
-        data: (data) => data == null
-            ? const SizedBox()
-            : Padding(
-                padding: EdgeInsets.only(
-                  left: 25.w,
-                  right: 25.w,
+      body: Padding(
+        padding: EdgeInsets.only(
+          left: 25.w,
+          right: 25.w,
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              courseData.when(
+                data: (data) => data == null
+                    ? const SizedBox()
+                    : Column(
+                        children: [
+                          CourseDetailThumbnail(
+                            courseItem: data,
+                          ),
+                          CourseDetailIconText(
+                            courseItem: data,
+                          ),
+                          CourseDetailDescription(
+                            courseItem: data,
+                          ),
+                          const CourseDetailGoBuyButton(),
+                          CourseDetailIncludes(
+                            courseItem: data,
+                          ),
+                          // const LessonInfo(),
+                        ],
+                      ),
+                error: (error, traceStack) => const Text(
+                  'Error loading the course data',
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CourseDetailThumbnail(
-                      courseItem: data,
-                    ),
-                    CourseDetailIconText(
-                      courseItem: data,
-                    ),
-                    CourseDetailDescription(
-                      courseItem: data,
-                    ),
-                    const CourseDetailGoBuyButton(),
-                    CourseDetailIncludes(
-                      courseItem: data,
-                    ),
-                    const LessonInfo(),
-                  ],
+                loading: () => const Center(
+                  child: CircularProgressIndicator(),
                 ),
               ),
-        error: (error, traceStack) => const Text(
-          'Error loading the data',
-        ),
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
+              lessonData.when(
+                data: (data) => data == null
+                    ? const SizedBox()
+                    : LessonInfo(
+                        lessonData: data,
+                      ),
+                error: (error, traceStack) => const Text(
+                  'Error loading the lesson data',
+                ),
+                loading: () => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

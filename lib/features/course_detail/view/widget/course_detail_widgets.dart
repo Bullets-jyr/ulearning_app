@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/models/course_entities.dart';
+import 'package:ulearning_app/common/models/lesson_entities.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
@@ -8,6 +10,7 @@ import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
+import 'package:ulearning_app/features/course_detail/controller/course_controller.dart';
 
 class CourseDetailThumbnail extends StatelessWidget {
   final CourseItem courseItem;
@@ -263,10 +266,16 @@ class CourseInfo extends StatelessWidget {
 }
 
 class LessonInfo extends StatelessWidget {
-  const LessonInfo({super.key});
+  final List<LessonItem> lessonData;
+
+  const LessonInfo({
+    super.key,
+    required this.lessonData,
+  });
 
   @override
   Widget build(BuildContext context) {
+    print('my course lesson number ${lessonData.length}');
     return Container(
       // width: 325.w,
       // height: 80.h,
@@ -275,63 +284,68 @@ class LessonInfo extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text14Normal(
+          const Text14Normal(
             text: 'Lesson list',
             color: AppColors.primaryText,
             fontWeight: FontWeight.bold,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            width: 325.w,
-            height: 80.h,
-            decoration: appBoxShadow(
-              radius: 10,
-              sR: 2,
-              bR: 3,
-              color: const Color.fromRGBO(255, 255, 255, 1),
-            ),
-            child: InkWell(
-              onTap: () {},
-              child: Row(
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  AppBoxDecorationImage(
-                    width: 60.w,
-                    height: 60.w,
-                    imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}default.png',
-                    fit: BoxFit.fill,
-                  ),
-                  SizedBox(
-                    width: 8.w,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+          ListView.builder(
+            itemCount: lessonData.length,
+            itemBuilder: (_, index) {
+              return Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                width: 325.w,
+                height: 80.h,
+                decoration: appBoxShadow(
+                  radius: 10,
+                  sR: 2,
+                  bR: 3,
+                  color: const Color.fromRGBO(255, 255, 255, 1),
+                ),
+                child: InkWell(
+                  onTap: () {},
+                  child: Row(
+                    // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text13Normal(
-                        text: 'This is first lesson',
+                      AppBoxDecorationImage(
+                        width: 60.w,
+                        height: 60.w,
+                        imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}default.png',
+                        fit: BoxFit.fill,
                       ),
-                      Text10Normal(
-                        text: 'This is description',
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text13Normal(
+                            text: 'This is first lesson',
+                          ),
+                          Text10Normal(
+                            text: 'This is description',
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Container(),
+                      ),
+                      const AppImage(
+                        imagePath: ImageRes.arrowRight,
+                        width: 24,
+                        height: 24,
                       ),
                     ],
                   ),
-                  Expanded(
-                    child: Container(),
-                  ),
-                  const AppImage(
-                    imagePath: ImageRes.arrowRight,
-                    width: 24,
-                    height: 24,
-                  ),
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           ),
         ],
       ),
