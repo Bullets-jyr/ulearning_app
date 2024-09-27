@@ -254,12 +254,87 @@ class CourseInfo extends StatelessWidget {
           margin: EdgeInsets.only(left: 10.w),
           child: Text11Normal(
             color: AppColors.primarySecondaryElementText,
-            text: length == null
-                ? '0 $infoText'
-                : '$length $infoText',
+            text: length == null ? '0 $infoText' : '$length $infoText',
           ),
         ),
       ],
+    );
+  }
+}
+
+class LessonInfo extends StatelessWidget {
+  const LessonInfo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // width: 325.w,
+      // height: 80.h,
+      margin: const EdgeInsets.only(
+        top: 20,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text14Normal(
+            text: 'Lesson list',
+            color: AppColors.primaryText,
+            fontWeight: FontWeight.bold,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            width: 325.w,
+            height: 80.h,
+            decoration: appBoxShadow(
+              radius: 10,
+              sR: 2,
+              bR: 3,
+              color: const Color.fromRGBO(255, 255, 255, 1),
+            ),
+            child: InkWell(
+              onTap: () {},
+              child: Row(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  AppBoxDecorationImage(
+                    width: 60.w,
+                    height: 60.w,
+                    imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}default.png',
+                    fit: BoxFit.fill,
+                  ),
+                  SizedBox(
+                    width: 8.w,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text13Normal(
+                        text: 'This is first lesson',
+                      ),
+                      Text10Normal(
+                        text: 'This is description',
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: Container(),
+                  ),
+                  const AppImage(
+                    imagePath: ImageRes.arrowRight,
+                    width: 24,
+                    height: 24,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

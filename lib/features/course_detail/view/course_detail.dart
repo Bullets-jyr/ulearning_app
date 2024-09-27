@@ -59,6 +59,7 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
                     CourseDetailIncludes(
                       courseItem: data,
                     ),
+                    const LessonInfo(),
                   ],
                 ),
               ),

@@ -33,6 +33,34 @@ Widget text24Normal({
 //   );
 // }
 
+class Text13Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  final FontWeight fontWeight;
+  final TextAlign? textAlign;
+
+  const Text13Normal({
+    super.key,
+    this.text = '',
+    this.color = AppColors.primaryText,
+    this.fontWeight = FontWeight.bold,
+    this.textAlign = TextAlign.start,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: textAlign,
+      style: TextStyle(
+        color: color,
+        fontSize: 13,
+        fontWeight: fontWeight,
+      ),
+    );
+  }
+}
+
 class Text16Normal extends StatelessWidget {
   final String text;
   final Color color;

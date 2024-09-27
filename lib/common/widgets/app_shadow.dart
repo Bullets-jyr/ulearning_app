@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/models/course_entities.dart';
@@ -64,12 +63,13 @@ BoxDecoration appBoxDecorationTextField({
   Color borderColor = AppColors.primaryFourthElementText,
 }) {
   return BoxDecoration(
-      color: color,
-      // color: Colors.transparent,
-      borderRadius: BorderRadius.circular(radius),
-      border: Border.all(
-        color: borderColor,
-      ));
+    color: color,
+    // color: Colors.transparent,
+    borderRadius: BorderRadius.circular(radius),
+    border: Border.all(
+      color: borderColor,
+    ),
+  );
 }
 
 class AppBoxDecorationImage extends StatelessWidget {
