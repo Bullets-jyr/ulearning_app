@@ -86,29 +86,29 @@ Widget appScreens({int index = 0}) {
     //     height: 250,
     //   ),
     // ),
-    Center(
-      child: appImage(
+    const Center(
+      child: AppImage(
         imagePath: ImageRes.search,
         width: 250,
         height: 250,
       ),
     ),
-    Center(
-      child: appImage(
+    const Center(
+      child: AppImage(
         imagePath: ImageRes.play,
         width: 250,
         height: 250,
       ),
     ),
-    Center(
-      child: appImage(
+    const Center(
+      child: AppImage(
         imagePath: ImageRes.message,
         width: 250,
         height: 250,
       ),
     ),
-    Center(
-      child: appImage(
+    const Center(
+      child: AppImage(
         imagePath: ImageRes.profile,
         width: 250,
         height: 250,

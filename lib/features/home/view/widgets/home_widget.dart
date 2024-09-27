@@ -196,10 +196,10 @@ AppBar homeAppBar(WidgetRef ref) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          appImage(
+          const AppImage(
             imagePath: ImageRes.menu,
-            width: 18.w,
-            height: 12.h,
+            width: 18,
+            height: 12,
           ),
           profileState.when(
             data: (value) => GestureDetector(
@@ -207,9 +207,9 @@ AppBar homeAppBar(WidgetRef ref) {
                 imagePath: '${AppConstants.SERVER_API_URL}${value.avatar!}',
               ),
             ),
-            error: (err, stack) => appImage(
-              width: 18.w,
-              height: 12.h,
+            error: (err, stack) => const AppImage(
+              width: 18,
+              height: 12,
               imagePath: ImageRes.profile,
             ),
             loading: () => Container(),

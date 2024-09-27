@@ -70,12 +70,10 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
                         ),
                         Container(
                           margin: EdgeInsets.only(left: 30.w),
-                          child: Row(
+                          child: const Row(
                             children: [
-                              Container(
-                                child: appImage(
-                                  imagePath: ImageRes.people,
-                                ),
+                              AppImage(
+                                imagePath: ImageRes.people,
                               ),
                             ],
                           ),
