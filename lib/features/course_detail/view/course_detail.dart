@@ -71,8 +71,11 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
                 error: (error, traceStack) => const Text(
                   'Error loading the course data',
                 ),
-                loading: () => const Center(
-                  child: CircularProgressIndicator(),
+                loading: () => SizedBox(
+                  height: 500.h,
+                  child: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
                 ),
               ),
               lessonData.when(
@@ -84,8 +87,11 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
                 error: (error, traceStack) => const Text(
                   'Error loading the lesson data',
                 ),
-                loading: () => const Center(
-                  child: CircularProgressIndicator(),
+                loading: () => SizedBox(
+                  height: 500.h,
+                  child: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
                 ),
               ),
             ],

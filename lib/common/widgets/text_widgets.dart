@@ -145,6 +145,8 @@ class Text10Normal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      overflow: TextOverflow.clip,
+      maxLines: 1,
       text,
       // textAlign: TextAlign.center,
       textAlign: TextAlign.start,

@@ -286,18 +286,26 @@ class LessonInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text14Normal(
-            text: 'Lesson list',
-            color: AppColors.primaryText,
-            fontWeight: FontWeight.bold,
-          ),
-          const SizedBox(
-            height: 20,
+          lessonData.isNotEmpty
+              ? const Text14Normal(
+                  text: 'Lesson list',
+                  color: AppColors.primaryText,
+                  fontWeight: FontWeight.bold,
+                )
+              : const Text14Normal(
+                  text: 'Lesson list is empty',
+                  color: AppColors.primaryText,
+                  fontWeight: FontWeight.bold,
+                ),
+          SizedBox(
+            height: 10.h,
           ),
           ListView.builder(
+            shrinkWrap: true,
             itemCount: lessonData.length,
             itemBuilder: (_, index) {
               return Container(
+                margin: EdgeInsets.only(top: 10.h),
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
                 width: 325.w,
                 height: 80.h,
@@ -315,27 +323,30 @@ class LessonInfo extends StatelessWidget {
                       AppBoxDecorationImage(
                         width: 60.w,
                         height: 60.w,
-                        imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}default.png',
+                        imagePath:
+                            '${AppConstants.IMAGE_UPLOADS_PATH}${lessonData[index].thumbnail!}',
                         fit: BoxFit.fill,
                       ),
                       SizedBox(
                         width: 8.w,
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text13Normal(
-                            text: 'This is first lesson',
-                          ),
-                          Text10Normal(
-                            text: 'This is description',
-                          ),
-                        ],
-                      ),
                       Expanded(
-                        child: Container(),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text13Normal(
+                              text: lessonData[index].name!,
+                            ),
+                            Text10Normal(
+                              text: lessonData[index].description!,
+                            ),
+                          ],
+                        ),
                       ),
+                      // Expanded(
+                      //   child: Container(),
+                      // ),
                       const AppImage(
                         imagePath: ImageRes.arrowRight,
                         width: 24,
