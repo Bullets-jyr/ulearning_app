@@ -193,7 +193,7 @@ class CourseDetailIncludes extends StatelessWidget {
           // ),
           CourseInfo(
             imagePath: ImageRes.videoDetail,
-            length: courseItem.video_len.toString(),
+            length: courseItem.video_len,
             infoText: 'Hours video',
           ),
           SizedBox(
@@ -201,7 +201,7 @@ class CourseDetailIncludes extends StatelessWidget {
           ),
           CourseInfo(
             imagePath: ImageRes.fileDetail,
-            length: courseItem.lesson_num.toString(),
+            length: courseItem.lesson_num,
             infoText: 'Number of files',
           ),
           SizedBox(
@@ -209,7 +209,7 @@ class CourseDetailIncludes extends StatelessWidget {
           ),
           CourseInfo(
             imagePath: ImageRes.downloadDetail,
-            length: courseItem.down_num.toString(),
+            length: courseItem.down_num,
             infoText: 'Number of items to download',
           ),
         ],
@@ -220,7 +220,7 @@ class CourseDetailIncludes extends StatelessWidget {
 
 class CourseInfo extends StatelessWidget {
   final String imagePath;
-  final String? length;
+  final int? length;
   final String? infoText;
 
   const CourseInfo({
@@ -232,6 +232,12 @@ class CourseInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print('hashCode values are for length ${length.hashCode} for null ${null.hashCode}');
+    // if (length.hashCode == null.hashCode) {
+    //   print('same object');
+    // } else {
+    //   print('not same object');
+    // }
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
