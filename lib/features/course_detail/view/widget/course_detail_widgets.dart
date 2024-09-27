@@ -5,6 +5,7 @@ import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
+import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 
@@ -121,6 +122,44 @@ class CourseDetailDescription extends StatelessWidget {
               text: courseItem.description ?? 'No description found',
               color: AppColors.primaryThirdElementText,
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CourseDetailGoBuyButton extends StatelessWidget {
+  const CourseDetailGoBuyButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(
+        top: 20.h,
+      ),
+      child: const AppButton(
+        buttonName: 'Go buy',
+      ),
+    );
+  }
+}
+
+class CourseDetailIncludes extends StatelessWidget {
+  const CourseDetailIncludes({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(
+        top: 20.h,
+      ),
+      child: Column(
+        children: [
+          const Text14Normal(
+            text: 'Course includes',
+            color: AppColors.primaryText,
+            fontWeight: FontWeight.bold,
           ),
         ],
       ),

@@ -55,6 +55,8 @@ class _CourseDetailState extends ConsumerState<CourseDetail> {
                     CourseDetailDescription(
                       courseItem: data,
                     ),
+                    const CourseDetailGoBuyButton(),
+                    const CourseDetailIncludes(),
                   ],
                 ),
               ),

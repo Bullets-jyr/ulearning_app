@@ -80,11 +80,13 @@ class Text16Normal extends StatelessWidget {
 class Text14Normal extends StatelessWidget {
   final String text;
   final Color color;
+  final FontWeight? fontWeight;
 
   const Text14Normal({
     super.key,
     this.text = '',
     this.color = AppColors.primaryThirdElementText,
+    this.fontWeight = FontWeight.normal,
   });
 
   @override
@@ -96,7 +98,7 @@ class Text14Normal extends StatelessWidget {
       style: TextStyle(
         color: color,
         fontSize: 14,
-        fontWeight: FontWeight.normal,
+        fontWeight: fontWeight,
       ),
     );
   }
