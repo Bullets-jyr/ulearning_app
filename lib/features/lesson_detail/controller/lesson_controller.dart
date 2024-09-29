@@ -31,6 +31,7 @@ Future<void> lessonDetailController(LessonDetailControllerRef ref,
       initializeVideoPlayer: initializeVideoPlayerFuture,
       url: url,
     );
+    videoPlayerController?.play();
     ref
         .read(lessonDataControllerProvider.notifier)
         .updateLessonData(vidInstance);

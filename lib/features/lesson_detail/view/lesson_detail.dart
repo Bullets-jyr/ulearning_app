@@ -26,6 +26,13 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
   }
 
   @override
+  void dispose() {
+    videoPlayerController?.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // var lessonDetail =
     //     ref.watch(lessonDetailControllerProvider(index: args.toInt()));
@@ -39,6 +46,13 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
               data: (data) => Container(
                 width: 325.w,
                 height: 200.h,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      '${AppConstants.IMAGE_UPLOADS_PATH}${data.lessonItem[0].thumbnail}'
+                    ),
+                  ),
+                ),
                 child: FutureBuilder(
                   future: data.initializeVideoPlayer,
                   builder: (context, snapshot) {
