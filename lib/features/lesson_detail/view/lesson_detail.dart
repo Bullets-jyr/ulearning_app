@@ -27,7 +27,7 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
   @override
   Widget build(BuildContext context) {
     var lessonDetail =
-        ref.watch(courseLessonDetailControllerProvider(index: args.toInt()));
+        ref.watch(lessonDetailControllerProvider(index: args.toInt()));
 
     return Scaffold(
       appBar: AppBar(),
@@ -35,15 +35,15 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
         child: lessonDetail.when(
           data: (data) => Column(
             children: [
-              Text(
-                data!.elementAt(0).name.toString(),
-              ),
-              AppBoxDecorationImage(
-                imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${data!.elementAt(0).thumbnail}',
-                width: 325.w,
-                height: 200.h,
-                fit: BoxFit.fitWidth,
-              ),
+              // Text(
+              //   data!.elementAt(0).name.toString(),
+              // ),
+              // AppBoxDecorationImage(
+              //   imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${data!.elementAt(0).thumbnail}',
+              //   width: 325.w,
+              //   height: 200.h,
+              //   fit: BoxFit.fitWidth,
+              // ),
             ],
           ),
           error: (error, traceStack) => Text(

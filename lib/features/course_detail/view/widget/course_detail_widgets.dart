@@ -11,6 +11,7 @@ import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/features/course_detail/controller/course_controller.dart';
+import 'package:ulearning_app/features/lesson_detail/controller/lesson_controller.dart';
 
 class CourseDetailThumbnail extends StatelessWidget {
   final CourseItem courseItem;
@@ -267,10 +268,12 @@ class CourseInfo extends StatelessWidget {
 
 class LessonInfo extends StatelessWidget {
   final List<LessonItem> lessonData;
+  final WidgetRef ref;
 
   const LessonInfo({
     super.key,
     required this.lessonData,
+    required this.ref,
   });
 
   @override
@@ -317,6 +320,7 @@ class LessonInfo extends StatelessWidget {
                 ),
                 child: InkWell(
                   onTap: () {
+                    ref.watch(lessonDetailControllerProvider(index: lessonData[index].id!));
                     Navigator.of(context).pushNamed(
                       '/lesson_detail',
                       arguments: {
