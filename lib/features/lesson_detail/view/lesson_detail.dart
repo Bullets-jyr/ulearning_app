@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
+import 'package:ulearning_app/common/widgets/app_shadow.dart';
+import 'package:ulearning_app/features/lesson_detail/controller/lesson_controller.dart';
 
-class LessonDetail extends StatefulWidget {
+class LessonDetail extends ConsumerStatefulWidget {
   const LessonDetail({super.key});
 
   @override
-  State<LessonDetail> createState() => _LessonDetailState();
+  ConsumerState<LessonDetail> createState() => _LessonDetailState();
 }
 
-class _LessonDetailState extends State<LessonDetail> {
+class _LessonDetailState extends ConsumerState<LessonDetail> {
   late var args;
 
   @override
@@ -21,10 +26,33 @@ class _LessonDetailState extends State<LessonDetail> {
 
   @override
   Widget build(BuildContext context) {
+    var lessonDetail =
+        ref.watch(courseLessonDetailControllerProvider(index: args.toInt()));
+
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text(args.toString()),
+        child: lessonDetail.when(
+          data: (data) => Column(
+            children: [
+              Text(
+                data!.elementAt(0).name.toString(),
+              ),
+              AppBoxDecorationImage(
+                imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${data!.elementAt(0).thumbnail}',
+                width: 325.w,
+                height: 200.h,
+                fit: BoxFit.fitWidth,
+              ),
+            ],
+          ),
+          error: (error, traceStack) => Text(
+            error.toString(),
+          ),
+          loading: () => Text(
+            'loading',
+          ),
+        ),
       ),
     );
   }

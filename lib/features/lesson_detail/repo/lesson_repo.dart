@@ -2,7 +2,7 @@ import 'package:ulearning_app/common/models/lesson_entities.dart';
 import 'package:ulearning_app/common/services/http_util.dart';
 
 class LessonRepo {
-  static Future<LessonListResponseEntity> courseLessonList({
+  static Future<LessonListResponseEntity> courseLessonDetail({
     LessonRequestEntity? params,
   }) async {
     var response = await HttpUtil().post(
