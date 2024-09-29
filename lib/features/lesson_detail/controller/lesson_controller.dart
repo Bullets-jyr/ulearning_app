@@ -56,6 +56,15 @@ class LessonDataController extends _$LessonDataController {
         url: lessons.url,
         initializeVideoPlayer: lessons.initializeVideoPlayer,
         lessonItem: lessons.lessonItem,
+        isPlay: lessons.isPlay,
+      ),
+    );
+  }
+
+  void playPause(bool isPlay) {
+    update(
+      (data) => data.copyWith(
+        isPlay: isPlay,
       ),
     );
   }

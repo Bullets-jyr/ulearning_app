@@ -50,83 +50,113 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
             : Column(
                 children: [
                   lessonData.when(
-                    data: (data) => Container(
-                      width: 325.w,
-                      height: 200.h,
-                      decoration: networkImageDecoration(
-                        imagePath:
-                            '${AppConstants.IMAGE_UPLOADS_PATH}${data.lessonItem[0].thumbnail}',
-                      ),
-                      // decoration: BoxDecoration(
-                      //   image: DecorationImage(
-                      //     image: NetworkImage(
-                      //         '${AppConstants.IMAGE_UPLOADS_PATH}${data.lessonItem[0].thumbnail}'),
-                      //   ),
-                      // ),
-                      child: FutureBuilder(
-                        future: data.initializeVideoPlayer,
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.done) {
-                            return videoPlayerController == null
-                                ? Container()
-                                : Stack(
-                                    children: [
-                                      VideoPlayer(videoPlayerController!),
-                                    ],
-                                  );
-                          } else {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        },
-                      ),
+                    data: (data) => Column(
+                      children: [
+                        Container(
+                          width: 325.w,
+                          height: 200.h,
+                          decoration: networkImageDecoration(
+                            imagePath:
+                                '${AppConstants.IMAGE_UPLOADS_PATH}${data.lessonItem[0].thumbnail}',
+                          ),
+                          // decoration: BoxDecoration(
+                          //   image: DecorationImage(
+                          //     image: NetworkImage(
+                          //         '${AppConstants.IMAGE_UPLOADS_PATH}${data.lessonItem[0].thumbnail}'),
+                          //   ),
+                          // ),
+                          child: FutureBuilder(
+                            future: data.initializeVideoPlayer,
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.done) {
+                                return videoPlayerController == null
+                                    ? Container()
+                                    : Stack(
+                                        children: [
+                                          VideoPlayer(videoPlayerController!),
+                                        ],
+                                      );
+                              } else {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: 25.w,
+                            right: 25.w,
+                            top: 10.h,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              GestureDetector(
+                                child: AppImage(
+                                  width: 24.w,
+                                  height: 24.h,
+                                  imagePath: ImageRes.left,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15.w,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  // print('---my play state is ${data.isPlay}');
+                                  if (data.isPlay) {
+                                    // print('---it is playing1');
+                                    videoPlayerController?.pause();
+                                    ref
+                                        .read(lessonDataControllerProvider
+                                            .notifier)
+                                        .playPause(false);
+                                    // print('---it is stopped1');
+                                  } else {
+                                    // print('---it is stopped2');
+                                    videoPlayerController?.play();
+                                    ref
+                                        .read(lessonDataControllerProvider
+                                            .notifier)
+                                        .playPause(true);
+                                    // print('---it is playing2');
+                                  }
+                                },
+                                child: data.isPlay
+                                    ? AppImage(
+                                        width: 24.w,
+                                        height: 24.h,
+                                        imagePath: ImageRes.pause,
+                                      )
+                                    : AppImage(
+                                        width: 24.w,
+                                        height: 24.h,
+                                        imagePath: ImageRes.play,
+                                      ),
+                              ),
+                              SizedBox(
+                                width: 15.w,
+                              ),
+                              GestureDetector(
+                                child: AppImage(
+                                  width: 24.w,
+                                  height: 24.h,
+                                  imagePath: ImageRes.right,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                     error: (e, t) => Text(
                       'error',
                     ),
                     loading: () => Text(
                       'Loading',
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: 25.w,
-                      right: 25.w,
-                      top: 10.h,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          child: AppImage(
-                            width: 24.w,
-                            height: 24.h,
-                            imagePath: ImageRes.left,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 15.w,
-                        ),
-                        GestureDetector(
-                          child: AppImage(
-                            width: 24.w,
-                            height: 24.h,
-                            imagePath: ImageRes.pause,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 15.w,
-                        ),
-                        GestureDetector(
-                          child: AppImage(
-                            width: 24.w,
-                            height: 24.h,
-                            imagePath: ImageRes.right,
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                 ],
