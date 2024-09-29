@@ -7,7 +7,7 @@ part of 'lesson_controller.dart';
 // **************************************************************************
 
 String _$lessonDetailControllerHash() =>
-    r'bc245f2f3be3e9e52ec0780c1f7b4dd61e1f22b6';
+    r'4d13d625701b6c02d18a243bb6e0494240551974';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -156,5 +156,23 @@ class _LessonDetailControllerProviderElement
   @override
   int get index => (origin as LessonDetailControllerProvider).index;
 }
+
+String _$lessonDataControllerHash() =>
+    r'fafab502171856891c76c89800675f87c2a3dac7';
+
+/// See also [LessonDataController].
+@ProviderFor(LessonDataController)
+final lessonDataControllerProvider = AutoDisposeAsyncNotifierProvider<
+    LessonDataController, LessonVideo>.internal(
+  LessonDataController.new,
+  name: r'lessonDataControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$lessonDataControllerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$LessonDataController = AutoDisposeAsyncNotifier<LessonVideo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

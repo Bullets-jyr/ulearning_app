@@ -26,34 +26,49 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
 
   @override
   Widget build(BuildContext context) {
-    var lessonDetail =
-        ref.watch(lessonDetailControllerProvider(index: args.toInt()));
-
+    // var lessonDetail =
+    //     ref.watch(lessonDetailControllerProvider(index: args.toInt()));
+    var lessonData = ref.watch(lessonDataControllerProvider);
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: lessonDetail.when(
-          data: (data) => Column(
-            children: [
-              // Text(
-              //   data!.elementAt(0).name.toString(),
-              // ),
-              // AppBoxDecorationImage(
-              //   imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${data!.elementAt(0).thumbnail}',
-              //   width: 325.w,
-              //   height: 200.h,
-              //   fit: BoxFit.fitWidth,
-              // ),
-            ],
-          ),
-          error: (error, traceStack) => Text(
-            error.toString(),
-          ),
-          loading: () => Text(
-            'loading',
-          ),
+        child: Column(
+          children: [
+            lessonData.when(
+              data: (data) => Text('hello'),
+              error: (e, t) => Text(
+                'error',
+              ),
+              loading: () => Text(
+                'Loading',
+              ),
+            ),
+          ],
         ),
       ),
+      // body: Center(
+      //   child: lessonDetail.when(
+      //     data: (data) => Column(
+      //       children: [
+      //         // Text(
+      //         //   data!.elementAt(0).name.toString(),
+      //         // ),
+      //         // AppBoxDecorationImage(
+      //         //   imagePath: '${AppConstants.IMAGE_UPLOADS_PATH}${data!.elementAt(0).thumbnail}',
+      //         //   width: 325.w,
+      //         //   height: 200.h,
+      //         //   fit: BoxFit.fitWidth,
+      //         // ),
+      //       ],
+      //     ),
+      //     error: (error, traceStack) => Text(
+      //       error.toString(),
+      //     ),
+      //     loading: () => Text(
+      //       'loading',
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
