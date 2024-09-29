@@ -27,7 +27,7 @@ Future<void> lessonDetailController(LessonDetailControllerRef ref,
 
     LessonVideo vidInstance = LessonVideo(
       lessonItem: response.data!,
-      isPlay: false,
+      isPlay: true,
       initializeVideoPlayer: initializeVideoPlayerFuture,
       url: url,
     );

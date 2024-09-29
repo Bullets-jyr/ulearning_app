@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/features/lesson_detail/controller/lesson_controller.dart';
+import 'package:video_player/video_player.dart';
 
 class LessonDetail extends ConsumerStatefulWidget {
   const LessonDetail({super.key});
@@ -35,7 +36,28 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
         child: Column(
           children: [
             lessonData.when(
-              data: (data) => Text('hello'),
+              data: (data) => Container(
+                width: 325.w,
+                height: 200.h,
+                child: FutureBuilder(
+                  future: data.initializeVideoPlayer,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      return videoPlayerController == null
+                          ? Container()
+                          : Stack(
+                              children: [
+                                VideoPlayer(videoPlayerController!),
+                              ],
+                            );
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  },
+                ),
+              ),
               error: (e, t) => Text(
                 'error',
               ),
