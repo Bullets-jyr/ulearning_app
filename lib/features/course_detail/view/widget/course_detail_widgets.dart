@@ -316,7 +316,15 @@ class LessonInfo extends StatelessWidget {
                   color: const Color.fromRGBO(255, 255, 255, 1),
                 ),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                      '/lesson_detail',
+                      arguments: {
+                        'id': lessonData[index].id,
+                        // 'id': 4,
+                      },
+                    );
+                  },
                   child: Row(
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
