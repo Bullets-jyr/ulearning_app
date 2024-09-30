@@ -51,14 +51,15 @@ class LessonDataController extends _$LessonDataController {
   }
 
   void updateLessonData(LessonVideo lessons) {
-    update(
-      (data) => data.copyWith(
-        url: lessons.url,
-        initializeVideoPlayer: lessons.initializeVideoPlayer,
-        lessonItem: lessons.lessonItem,
-        isPlay: lessons.isPlay,
-      ),
-    );
+    update((data) => lessons);
+    // update(
+    //   (data) => data.copyWith(
+    //     url: lessons.url,
+    //     initializeVideoPlayer: lessons.initializeVideoPlayer,
+    //     lessonItem: lessons.lessonItem,
+    //     isPlay: lessons.isPlay,
+    //   ),
+    // );
   }
 
   void playPause(bool isPlay) {
