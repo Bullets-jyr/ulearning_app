@@ -50,6 +50,13 @@ class LessonDataController extends _$LessonDataController {
     return LessonVideo();
   }
 
+  @override
+  set state(AsyncValue<LessonVideo> newState) {
+    print('-----------${newState.value!.lessonItem.first.url}-----------');
+    // TODO: implement state
+    super.state = newState;
+  }
+
   void updateLessonData(LessonVideo lessons) {
     update((data) => lessons);
     // update(
@@ -86,10 +93,16 @@ class LessonDataController extends _$LessonDataController {
     // next start again
     var vidUrl = '${AppConstants.IMAGE_UPLOADS_PATH}${url}';
     print(vidUrl.toString());
+
     videoPlayerController = VideoPlayerController.networkUrl(
       Uri.parse(vidUrl),
     );
-    var initializeVideoPlayerFuture = videoPlayerController?.initialize();
+    var initializeVideoPlayerFuture =
+        videoPlayerController?.initialize().then((value) {
+          videoPlayerController?.seekTo(Duration(seconds: 0));
+          videoPlayerController?.play();
+        });
+
     update(
       (data) => data.copyWith(
         isPlay: true,
@@ -98,6 +111,6 @@ class LessonDataController extends _$LessonDataController {
       ),
     );
 
-    videoPlayerController?.play();
+    // videoPlayerController?.play();
   }
 }
