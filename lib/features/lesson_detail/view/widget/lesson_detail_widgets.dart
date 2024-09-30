@@ -12,11 +12,13 @@ import 'package:ulearning_app/features/lesson_detail/controller/lesson_controlle
 class LessonVideos extends StatelessWidget {
   final List<LessonVideoItem> lessonData;
   final WidgetRef ref;
+  final Function syncVideoIndex;
 
   const LessonVideos({
     super.key,
     required this.lessonData,
     required this.ref,
+    required this.syncVideoIndex,
   });
 
   @override
@@ -38,6 +40,7 @@ class LessonVideos extends StatelessWidget {
           ),
           child: InkWell(
             onTap: () {
+              syncVideoIndex(index);
               var vidUrl = lessonData[index].url;
               ref.read(lessonDataControllerProvider.notifier).playNextVid(vidUrl!);
             },

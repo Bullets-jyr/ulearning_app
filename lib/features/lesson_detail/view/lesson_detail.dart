@@ -110,8 +110,12 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
                                       toastInfo('No earlier videos');
                                       return;
                                     }
-                                    var videoUrl = data.lessonItem[videoIndex].url;
-                                    ref.read(lessonDataControllerProvider.notifier).playNextVid(videoUrl!);
+                                    var videoUrl =
+                                        data.lessonItem[videoIndex].url;
+                                    ref
+                                        .read(lessonDataControllerProvider
+                                            .notifier)
+                                        .playNextVid(videoUrl!);
                                   },
                                   child: AppImage(
                                     width: 24.w,
@@ -161,17 +165,21 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
                                 GestureDetector(
                                   onTap: () {
                                     /**
-                                     * length = 2
-                                     * current = 0
-                                     */
+                               * length = 2
+                               * current = 0
+                               */
                                     videoIndex = videoIndex + 1;
                                     if (videoIndex >= data.lessonItem.length) {
                                       videoIndex = data.lessonItem.length - 1;
                                       toastInfo('You have seen all the videos');
                                       return;
                                     }
-                                    var videoUrl = data.lessonItem[videoIndex].url;
-                                    ref.read(lessonDataControllerProvider.notifier).playNextVid(videoUrl!);
+                                    var videoUrl =
+                                        data.lessonItem[videoIndex].url;
+                                    ref
+                                        .read(lessonDataControllerProvider
+                                            .notifier)
+                                        .playNextVid(videoUrl!);
                                   },
                                   child: AppImage(
                                     width: 24.w,
@@ -191,6 +199,7 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
                             child: LessonVideos(
                               lessonData: data.lessonItem,
                               ref: ref,
+                              syncVideoIndex: syncVideoIndex,
                             ),
                           ),
                         ],
@@ -230,5 +239,9 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
       //   ),
       // ),
     );
+  }
+
+  void syncVideoIndex(int index) {
+    videoIndex = index;
   }
 }
