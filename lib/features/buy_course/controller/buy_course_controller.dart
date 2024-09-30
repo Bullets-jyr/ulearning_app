@@ -15,7 +15,9 @@ Future<String?> buyCourseController(BuyCourseControllerRef ref,
     return response.data;
     // return null;
   } else {
-    print('request failed ${response.code}');
+    // print('request failed ${response.code}');
+    print('request failed due to ${response.msg}');
+    print('request failed due to ${response.code}');
   }
   return null;
 }
