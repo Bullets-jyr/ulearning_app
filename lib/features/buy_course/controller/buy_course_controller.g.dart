@@ -7,7 +7,7 @@ part of 'buy_course_controller.dart';
 // **************************************************************************
 
 String _$buyCourseControllerHash() =>
-    r'5fa8d96942f71fd5f831accbef97a5477120f57a';
+    r'c7af029dadad04d24408b4da1fb4e3b7517a97ff';
 
 /// Copied from Dart SDK
 class _SystemHash {
