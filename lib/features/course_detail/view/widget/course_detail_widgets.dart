@@ -144,9 +144,14 @@ class CourseDetailGoBuyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print(courseItem.id);
+        // print(courseItem.id);
         // print('I am tapped');
-        Navigator.of(context).pushNamed('/buy_course');
+        Navigator.of(context).pushNamed(
+          '/buy_course',
+          arguments: {
+            "id": courseItem.id,
+          },
+        );
       },
       child: Container(
         margin: EdgeInsets.only(
