@@ -10,7 +10,6 @@ import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/features/course_detail/controller/course_controller.dart';
 import 'package:ulearning_app/features/lesson_detail/controller/lesson_controller.dart';
 
 class CourseDetailThumbnail extends StatelessWidget {

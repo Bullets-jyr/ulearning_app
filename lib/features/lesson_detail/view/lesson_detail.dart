@@ -6,6 +6,7 @@ import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
 import 'package:ulearning_app/features/lesson_detail/controller/lesson_controller.dart';
+import 'package:ulearning_app/features/lesson_detail/view/widget/lesson_detail_widgets.dart';
 import 'package:video_player/video_player.dart';
 
 class LessonDetail extends ConsumerStatefulWidget {
@@ -148,6 +149,16 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
                                 ),
                               ),
                             ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 25.w, right: 25.w),
+                          child: LessonVideos(
+                            lessonData: data.lessonItem,
+                            ref: ref,
                           ),
                         ),
                       ],

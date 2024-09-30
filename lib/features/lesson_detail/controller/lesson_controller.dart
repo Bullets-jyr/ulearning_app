@@ -68,4 +68,35 @@ class LessonDataController extends _$LessonDataController {
       ),
     );
   }
+
+  void playNextVid(String url) async {
+    if (videoPlayerController != null) {
+      videoPlayerController?.pause();
+      videoPlayerController?.dispose();
+    }
+    update(
+      (data) => data.copyWith(
+        isPlay: false,
+        initializeVideoPlayer: null,
+      ),
+    );
+    // done with resource release
+
+    // next start again
+    var vidUrl = '${AppConstants.IMAGE_UPLOADS_PATH}${url}';
+    print(vidUrl.toString());
+    videoPlayerController = VideoPlayerController.networkUrl(
+      Uri.parse(vidUrl),
+    );
+    var initializeVideoPlayerFuture = videoPlayerController?.initialize();
+    update(
+      (data) => data.copyWith(
+        isPlay: true,
+        initializeVideoPlayer: initializeVideoPlayerFuture,
+        url: vidUrl,
+      ),
+    );
+
+    videoPlayerController?.play();
+  }
 }
