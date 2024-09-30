@@ -133,16 +133,28 @@ class CourseDetailDescription extends StatelessWidget {
 }
 
 class CourseDetailGoBuyButton extends StatelessWidget {
-  const CourseDetailGoBuyButton({super.key});
+  final CourseItem courseItem;
+
+  const CourseDetailGoBuyButton({
+    super.key,
+    required this.courseItem,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        top: 20.h,
-      ),
-      child: const AppButton(
-        buttonName: 'Go buy',
+    return GestureDetector(
+      onTap: () {
+        print(courseItem.id);
+        // print('I am tapped');
+        Navigator.of(context).pushNamed('/buy_course');
+      },
+      child: Container(
+        margin: EdgeInsets.only(
+          top: 20.h,
+        ),
+        child: const AppButton(
+          buttonName: 'Go buy',
+        ),
       ),
     );
   }
@@ -319,7 +331,8 @@ class LessonInfo extends StatelessWidget {
                 ),
                 child: InkWell(
                   onTap: () {
-                    ref.watch(lessonDetailControllerProvider(index: lessonData[index].id!));
+                    ref.watch(lessonDetailControllerProvider(
+                        index: lessonData[index].id!));
                     Navigator.of(context).pushNamed(
                       '/lesson_detail',
                       arguments: {
