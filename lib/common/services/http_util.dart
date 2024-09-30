@@ -118,6 +118,8 @@ ErrorEntity createErrorEntity(DioException error) {
           return ErrorEntity(code: 400, message: 'request syntax error');
         case 401:
           return ErrorEntity(code: 401, message: 'permission denied');
+        case 500:
+          return ErrorEntity(code: 500, message: "Server internal error");
       }
       return ErrorEntity(code: -1, message: 'Server bad response');
 
