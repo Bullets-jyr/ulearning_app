@@ -5,6 +5,7 @@ import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
+import 'package:ulearning_app/common/widgets/popup_messages.dart';
 import 'package:ulearning_app/features/lesson_detail/controller/lesson_controller.dart';
 import 'package:ulearning_app/features/lesson_detail/view/widget/lesson_detail_widgets.dart';
 import 'package:video_player/video_player.dart';
@@ -18,6 +19,7 @@ class LessonDetail extends ConsumerStatefulWidget {
 
 class _LessonDetailState extends ConsumerState<LessonDetail> {
   late var args;
+  int videoIndex = 0;
 
   @override
   void didChangeDependencies() {
@@ -90,6 +92,7 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
                               },
                             ),
                           ),
+                          // video controls
                           Padding(
                             padding: EdgeInsets.only(
                               left: 25.w,
@@ -100,6 +103,16 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 GestureDetector(
+                                  onTap: () {
+                                    videoIndex = videoIndex - 1;
+                                    if (videoIndex < 0) {
+                                      videoIndex = 0;
+                                      toastInfo('No earlier videos');
+                                      return;
+                                    }
+                                    var videoUrl = data.lessonItem[videoIndex].url;
+                                    ref.read(lessonDataControllerProvider.notifier).playNextVid(videoUrl!);
+                                  },
                                   child: AppImage(
                                     width: 24.w,
                                     height: 24.h,
@@ -146,6 +159,20 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
                                   width: 15.w,
                                 ),
                                 GestureDetector(
+                                  onTap: () {
+                                    /**
+                                     * length = 2
+                                     * current = 0
+                                     */
+                                    videoIndex = videoIndex + 1;
+                                    if (videoIndex >= data.lessonItem.length) {
+                                      videoIndex = data.lessonItem.length - 1;
+                                      toastInfo('You have seen all the videos');
+                                      return;
+                                    }
+                                    var videoUrl = data.lessonItem[videoIndex].url;
+                                    ref.read(lessonDataControllerProvider.notifier).playNextVid(videoUrl!);
+                                  },
                                   child: AppImage(
                                     width: 24.w,
                                     height: 24.h,
@@ -158,6 +185,7 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
                           SizedBox(
                             height: 10.h,
                           ),
+                          // video list
                           Padding(
                             padding: EdgeInsets.only(left: 25.w, right: 25.w),
                             child: LessonVideos(
