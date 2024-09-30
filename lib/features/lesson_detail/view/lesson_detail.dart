@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
+import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
 import 'package:ulearning_app/common/widgets/popup_messages.dart';
@@ -44,7 +45,9 @@ class _LessonDetailState extends ConsumerState<LessonDetail> {
     var lessonData = ref.watch(lessonDataControllerProvider);
     // print('-------my data length is ${lessonData.value!.lessonItem.length}--------');
     return Scaffold(
-      appBar: AppBar(),
+      appBar: buildGlobalAppBar(
+        title: 'Lesson detail',
+      ),
       body: Center(
         child: lessonData.value == null
             ? Center(
