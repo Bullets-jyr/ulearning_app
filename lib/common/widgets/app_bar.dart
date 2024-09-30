@@ -28,6 +28,7 @@ AppBar buildGlobalAppBar({String title = ''}) {
     title: Text16Normal(
       text: title,
       color: AppColors.primaryText,
+      fontWeight: FontWeight.bold,
     ),
   );
 }

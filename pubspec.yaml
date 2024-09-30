@@ -39,14 +39,17 @@ dependencies:
   flutter_screenutil: ^5.9.3
   dots_indicator: ^3.0.0
   fluttertoast: ^8.2.8
-  firebase_auth: ^4.16.0
-  firebase_core: ^2.24.2
-  cloud_firestore: ^4.14.0
+  # firebase_auth: ^4.16.0
+  # firebase_core: ^2.24.2
+  # cloud_firestore: ^4.14.0
   shared_preferences: ^2.3.2
   dio: ^5.7.0
   video_player: ^2.9.1
   cached_network_image: ^3.4.1
   webview_flutter: ^3.0.1
+  firebase_auth: ^5.3.1
+  firebase_core: ^3.6.0
+  cloud_firestore: ^5.4.3
   # webview_flutter: ^4.9.0
 
 dev_dependencies:

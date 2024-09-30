@@ -4,6 +4,7 @@ import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
 import 'package:ulearning_app/features/home/view/home.dart';
+import 'package:ulearning_app/features/profile/view/profile.dart';
 
 var bottomTabs = <BottomNavigationBarItem>[
   BottomNavigationBarItem(
@@ -107,13 +108,14 @@ Widget appScreens({int index = 0}) {
         height: 250,
       ),
     ),
-    const Center(
-      child: AppImage(
-        imagePath: ImageRes.profile,
-        width: 250,
-        height: 250,
-      ),
-    ),
+    const Profile(),
+    // const Center(
+    //   child: AppImage(
+    //     imagePath: ImageRes.profile,
+    //     width: 250,
+    //     height: 250,
+    //   ),
+    // ),
   ];
   return _screens[index];
 }

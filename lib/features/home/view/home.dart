@@ -32,6 +32,7 @@ class _HomeState extends ConsumerState<Home> {
 
   @override
   Widget build(BuildContext context) {
+    print('-----build Home-----');
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: homeAppBar(ref),
