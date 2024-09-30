@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/models/course_entities.dart';
@@ -96,47 +97,59 @@ class AppBoxDecorationImage extends StatelessWidget {
     // print('my app bar');
     return GestureDetector(
       onTap: func,
-      child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: fit,
-            image: NetworkImage(
-              imagePath,
+      child: CachedNetworkImage(
+        imageUrl: imagePath,
+        imageBuilder: (
+          BuildContext context,
+          ImageProvider imageProvider,
+        ) =>
+            Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: fit,
+              image: imageProvider,
+            ),
+            borderRadius: BorderRadius.circular(
+              20.w,
             ),
           ),
-          borderRadius: BorderRadius.circular(
-            20.w,
-          ),
+          child: courseItem == null
+              ? Container()
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                        left: 20.w,
+                      ),
+                      child: FadeText(
+                        text: courseItem!.name!,
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                        left: 20.w,
+                        bottom: 30.h,
+                      ),
+                      child: FadeText(
+                        text: '${courseItem!.lesson_num!} Lessons',
+                        color: AppColors.primaryFourthElementText,
+                        fontSize: 8,
+                      ),
+                    ),
+                  ],
+                ),
         ),
-        child: courseItem == null
-            ? Container()
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: 20.w,
-                    ),
-                    child: FadeText(
-                      text: courseItem!.name!,
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: 20.w,
-                      bottom: 30.h,
-                    ),
-                    child: FadeText(
-                      text: '${courseItem!.lesson_num!} Lessons',
-                      color: AppColors.primaryFourthElementText,
-                      fontSize: 8,
-                    ),
-                  ),
-                ],
-              ),
+        placeholder: (context, url) => Container(
+          alignment: Alignment.center,
+          child: CircularProgressIndicator(),
+        ),
+        errorWidget: (context, url, error) => Image.asset(
+          ImageRes.defaultImg,
+        ),
       ),
     );
   }
