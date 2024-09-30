@@ -38,6 +38,8 @@ class _BuyCourseState extends ConsumerState<BuyCourse> {
               name: 'Payment',
               onMessageReceived: (JavascriptMessage message) {
                 print('------message received------');
+                print(message.message);
+                Navigator.of(context).pop(message.message);
               },
             ),
           },
