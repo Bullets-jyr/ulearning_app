@@ -35,7 +35,7 @@ class _BuyCourseState extends ConsumerState<BuyCourse> {
           javascriptMode: JavascriptMode.unrestricted,
           javascriptChannels: {
             JavascriptChannel(
-              name: 'Payment',
+              name: 'Pay',
               onMessageReceived: (JavascriptMessage message) {
                 print('------message received------');
                 print(message.message);
