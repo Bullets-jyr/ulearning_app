@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/features/profile/view/widget/profile_courses.dart';
+import 'package:ulearning_app/features/profile/view/widget/profile_list_items.dart';
 import 'package:ulearning_app/features/profile/view/widget/profile_widgets.dart';
 
 class Profile extends StatefulWidget {
@@ -29,6 +30,7 @@ class _ProfileState extends State<Profile> {
               ProfileNameWidget(),
               ProfileDescriptionWidget(),
               ProfileCourses(),
+              ProfileListItems(),
             ],
           ),
         ),

@@ -35,4 +35,6 @@ class ImageRes {
   static const String profileVideo = '$_imageBase/profile_video.png';
   static const String profileBook = '$_imageBase/profile_book.png';
   static const String profileStar = '$_imageBase/profile_star.png';
+
+  static const String settings = '$_imageBase/settings.png';
 }

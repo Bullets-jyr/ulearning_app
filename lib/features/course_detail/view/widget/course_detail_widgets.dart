@@ -142,8 +142,10 @@ class CourseDetailGoBuyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('===== courseItem.id: ${courseItem.id} =====');
     return GestureDetector(
       onTap: () {
+        print('===== courseItem.id: ${courseItem.id} =====');
         // print(courseItem.id);
         // print('I am tapped');
         Navigator.of(context).pushNamed(
