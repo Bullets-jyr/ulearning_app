@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/routes/app_routes_names.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
+import 'package:ulearning_app/global.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -34,7 +37,15 @@ class Settings extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        print('cancel');
+                        Global.storageService
+                            .remove(AppConstants.STORAGE_USER_PROFILE_KEY);
+                        Global.storageService
+                            .remove(AppConstants.STORAGE_USER_TOKEN_KEY);
+
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                          AppRoutesNames.SIGN_IN,
+                          (Route<dynamic> route) => false,
+                        );
                       },
                       child: Text(
                         'Confirm',
