@@ -5,7 +5,8 @@ import 'package:ulearning_app/features/buy_course/view/buy_course.dart';
 import 'package:ulearning_app/features/course_detail/view/course_detail.dart';
 import 'package:ulearning_app/features/home/view/home.dart';
 import 'package:ulearning_app/features/lesson_detail/view/lesson_detail.dart';
-import 'package:ulearning_app/features/settings/view/settings.dart';
+import 'package:ulearning_app/features/profile/courses_bought/view/courses_bought.dart';
+import 'package:ulearning_app/features/profile/settings/view/settings.dart';
 import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/features/application/view/application.dart';
 import 'package:ulearning_app/features/sign_in/view/sign_in.dart';
@@ -51,6 +52,10 @@ class AppPages {
         path: AppRoutesNames.SETTINGS,
         page: const Settings(),
       ),
+      RouteEntity(
+        path: AppRoutesNames.COURSES_BOUGHT,
+        page: const CoursesBought(),
+      ),
     ];
   }
 
@@ -59,8 +64,7 @@ class AppPages {
       // print('clicked route ${settings.name}');
     }
     if (settings.name != null) {
-      var result =
-      routes().where((element) => element.path == settings.name);
+      var result = routes().where((element) => element.path == settings.name);
       // print(result.isNotEmpty);
 
       if (result.isNotEmpty) {
@@ -69,7 +73,6 @@ class AppPages {
         bool deviceFirstTime = Global.storageService.getDeviceFirstOpen();
 
         if (result.first.path == AppRoutesNames.WELCOME && deviceFirstTime) {
-
           bool isLoggedIn = Global.storageService.isLoggedIn();
           if (isLoggedIn) {
             return MaterialPageRoute(
