@@ -41,4 +41,6 @@ class ImageRes {
   static const String award = '$_imageBase/award.png';
   static const String love = '$_imageBase/heart(1).png';
   static const String reminder = '$_imageBase/cube.png';
+
+  static const String logOut = '$_imageBase/Logout.png';
 }
