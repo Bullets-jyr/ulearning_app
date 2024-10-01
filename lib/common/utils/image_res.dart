@@ -15,7 +15,6 @@ class ImageRes {
   static const String pause = '$_imageBase/pause.png';
   static const String left = '$_imageBase/rewind-left.png';
   static const String right = '$_imageBase/rewind-right.png';
-
   static const String message = '$_imageBase/message-circle.png';
   static const String profile = '$_imageBase/person2.png';
   static const String searchIcon = '$_imageBase/search.png';
@@ -27,7 +26,8 @@ class ImageRes {
   static const String videoDetail = '$_imageBase/video_detail.png';
   static const String fileDetail = '$_imageBase/file_detail.png';
   static const String downloadDetail = '$_imageBase/download_detail.png';
-
+  static const String headPic = '$_imageBase/headpic.png';
+  static const String editImage = '$_imageBase/edit_3.png';
   static const String reading = 'assets/images/reading.png';
   static const String man = 'assets/images/man.png';
   static const String body = 'assets/images/boy.png';
