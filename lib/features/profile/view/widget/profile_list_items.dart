@@ -19,20 +19,20 @@ class ProfileListItems extends StatelessWidget {
             text: 'Settings',
           ),
           ListItem(
-            imagePath: ImageRes.settings,
-            text: 'Settings',
+            imagePath: ImageRes.creditCard,
+            text: 'Payment detail',
           ),
           ListItem(
-            imagePath: ImageRes.settings,
-            text: 'Settings',
+            imagePath: ImageRes.award,
+            text: 'Achievement',
           ),
           ListItem(
-            imagePath: ImageRes.settings,
-            text: 'Settings',
+            imagePath: ImageRes.love,
+            text: 'Love',
           ),
           ListItem(
-            imagePath: ImageRes.settings,
-            text: 'Settings',
+            imagePath: ImageRes.reminder,
+            text: 'Reminder',
           ),
         ],
       ),
@@ -71,8 +71,11 @@ class ListItem extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left: 15.w),
+          // height: 40,
+          // color: Colors.red,
+          margin: EdgeInsets.only(left: 15.w, bottom: 15.h),
           child: Text13Normal(
+            textAlign: TextAlign.center,
             text: text,
           ),
         ),

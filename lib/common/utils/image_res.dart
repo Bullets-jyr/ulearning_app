@@ -37,4 +37,8 @@ class ImageRes {
   static const String profileStar = '$_imageBase/profile_star.png';
 
   static const String settings = '$_imageBase/settings.png';
+  static const String creditCard = '$_imageBase/credit-card.png';
+  static const String award = '$_imageBase/award.png';
+  static const String love = '$_imageBase/heart(1).png';
+  static const String reminder = '$_imageBase/cube.png';
 }
