@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/routes/app_routes_names.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
@@ -17,6 +18,7 @@ class ProfileListItems extends StatelessWidget {
           ListItem(
             imagePath: ImageRes.settings,
             text: 'Settings',
+            func: () => Navigator.of(context).pushNamed(AppRoutesNames.SETTINGS),
           ),
           ListItem(
             imagePath: ImageRes.creditCard,
@@ -43,43 +45,48 @@ class ProfileListItems extends StatelessWidget {
 class ListItem extends StatelessWidget {
   final String imagePath;
   final String text;
+  final VoidCallback? func;
 
   const ListItem({
     super.key,
     required this.imagePath,
     required this.text,
+    this.func,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 40.w,
-          height: 40.h,
-          padding: EdgeInsets.all(7.w),
-          margin: EdgeInsets.only(bottom: 15.h),
-          decoration: BoxDecoration(
-            color: AppColors.primaryElement,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
+    return GestureDetector(
+      onTap: func,
+      child: Row(
+        children: [
+          Container(
+            width: 40.w,
+            height: 40.h,
+            padding: EdgeInsets.all(7.w),
+            margin: EdgeInsets.only(bottom: 15.h),
+            decoration: BoxDecoration(
               color: AppColors.primaryElement,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: AppColors.primaryElement,
+              ),
+            ),
+            child: AppImage(
+              imagePath: imagePath,
             ),
           ),
-          child: AppImage(
-            imagePath: imagePath,
+          Container(
+            // height: 40,
+            // color: Colors.red,
+            margin: EdgeInsets.only(left: 15.w, bottom: 15.h),
+            child: Text13Normal(
+              textAlign: TextAlign.center,
+              text: text,
+            ),
           ),
-        ),
-        Container(
-          // height: 40,
-          // color: Colors.red,
-          margin: EdgeInsets.only(left: 15.w, bottom: 15.h),
-          child: Text13Normal(
-            textAlign: TextAlign.center,
-            text: text,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

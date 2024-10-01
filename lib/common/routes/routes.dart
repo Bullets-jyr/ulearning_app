@@ -5,6 +5,7 @@ import 'package:ulearning_app/features/buy_course/view/buy_course.dart';
 import 'package:ulearning_app/features/course_detail/view/course_detail.dart';
 import 'package:ulearning_app/features/home/view/home.dart';
 import 'package:ulearning_app/features/lesson_detail/view/lesson_detail.dart';
+import 'package:ulearning_app/features/settings/view/settings.dart';
 import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/features/application/view/application.dart';
 import 'package:ulearning_app/features/sign_in/view/sign_in.dart';
@@ -45,6 +46,10 @@ class AppPages {
       RouteEntity(
         path: AppRoutesNames.BUY_COURSE,
         page: const BuyCourse(),
+      ),
+      RouteEntity(
+        path: AppRoutesNames.SETTINGS,
+        page: const Settings(),
       ),
     ];
   }

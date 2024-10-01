@@ -7,4 +7,5 @@ class AppRoutesNames {
   static const String COURSE_DETAIL = '/course_detail';
   static const String LESSON_DETAIL = '/lesson_detail';
   static const String BUY_COURSE = '/buy_course';
+  static const String SETTINGS = '/settings';
 }
