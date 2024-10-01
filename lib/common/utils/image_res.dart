@@ -30,5 +30,9 @@ class ImageRes {
   static const String editImage = '$_imageBase/edit_3.png';
   static const String reading = 'assets/images/reading.png';
   static const String man = 'assets/images/man.png';
-  static const String body = 'assets/images/boy.png';
+  static const String boy = 'assets/images/boy.png';
+
+  static const String profileVideo = '$_imageBase/profile_video.png';
+  static const String profileBook = '$_imageBase/profile_book.png';
+  static const String profileStar = '$_imageBase/profile_star.png';
 }

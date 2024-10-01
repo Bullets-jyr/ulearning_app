@@ -59,7 +59,7 @@ class Welcome extends ConsumerWidget {
                     AppOnboardingPage(
                       controller: _controller,
                       context: context,
-                      imagePath: ImageRes.body,
+                      imagePath: ImageRes.boy,
                       title: "Always Fascinated Learning",
                       subTitle:
                           "Anywhere, anytime. The time is at your discretion. So study wherever you can",
