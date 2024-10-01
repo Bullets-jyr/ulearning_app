@@ -25,6 +25,8 @@ class _ProfileState extends State<Profile> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ProfileImageWidget(),
+              ProfileNameWidget(),
+              ProfileDescriptionWidget(),
             ],
           ),
         ),
