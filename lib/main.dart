@@ -72,6 +72,8 @@ Future<void> main() async {
     ),
   );
 
+  print(const bool.fromEnvironment('dart.vm.product'));
+
   var person = Person('dbestech', 3);
   // print(person.name);
   var x = person(add: 'xyz');
