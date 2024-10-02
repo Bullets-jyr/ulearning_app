@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/features/profile/courses_bought/controller/courses_bought_controller.dart';
 
@@ -18,8 +19,15 @@ class CoursesBought extends ConsumerWidget {
             ? const Center(
                 child: CircularProgressIndicator(),
               )
-            : const Center(
-                child: Text('Hello Riverpod'),
+            : Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                    image: NetworkImage(
+                      '${AppConstants.IMAGE_UPLOADS_PATH}${value.elementAt(0).thumbnail!}',
+                    ),
+                  )),
+                ),
               ),
         AsyncError(:final error) => Text('Error $error'),
         _ => const Center(
