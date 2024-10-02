@@ -1,4 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:ulearning_app/common/models/course_entities.dart';
 import 'package:ulearning_app/features/search/repo/courses_search_repo.dart';
 
 // part 'courses_search_controller.g.dart';
@@ -23,18 +24,18 @@ import 'package:ulearning_app/features/search/repo/courses_search_repo.dart';
 //     AutoDisposeNotifierProvider<CoursesSearchController, String>(
 //         CoursesSearchController.new);
 
-class CoursesSearchController extends AutoDisposeAsyncNotifier<String>{
+class CoursesSearchController extends AutoDisposeAsyncNotifier<List<CourseItem>?>{
   @override
-  FutureOr<String> build() async {
+  FutureOr<List<CourseItem>?> build() async {
     final response = await CoursesSearchRepos.coursesDefaultSearch();
     if (response.code==200) {
-      return 'my data';
+      return response.data;
     }
     // TODO: implement build
-    return 'JiYoung Ryu loves riverpod';
+    return [];
   }
 }
 
 
 final coursesSearchControllerProvider =
-AutoDisposeAsyncNotifierProvider<CoursesSearchController, String>(CoursesSearchController.new);
+AutoDisposeAsyncNotifierProvider<CoursesSearchController, List<CourseItem>?>(CoursesSearchController.new);

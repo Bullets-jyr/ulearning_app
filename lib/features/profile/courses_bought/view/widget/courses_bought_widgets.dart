@@ -28,11 +28,11 @@ class CoursesBoughtWidgets extends StatelessWidget {
             horizontal: 10.w,
           ),
           decoration: BoxDecoration(
-            // borderRadius: BorderRadius.circular(10.w),
-            // color: const Color.fromRGBO(255, 255, 255, 1),
+            borderRadius: BorderRadius.circular(10.w),
+            color: const Color.fromRGBO(255, 255, 255, 1),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.2),
+                color: Colors.grey.withOpacity(0.1),
                 spreadRadius: 2,
                 blurRadius: 3,
                 offset: const Offset(0, 1),
