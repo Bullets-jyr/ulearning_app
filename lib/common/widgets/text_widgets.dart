@@ -38,6 +38,7 @@ class Text13Normal extends StatelessWidget {
   final Color color;
   final FontWeight fontWeight;
   final TextAlign? textAlign;
+  final int? maxLines;
 
   const Text13Normal({
     super.key,
@@ -45,11 +46,13 @@ class Text13Normal extends StatelessWidget {
     this.color = AppColors.primaryText,
     this.fontWeight = FontWeight.bold,
     this.textAlign = TextAlign.start,
+    this.maxLines,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
+      maxLines: maxLines,
       text,
       textAlign: textAlign,
       style: TextStyle(
