@@ -29,7 +29,11 @@ class Search extends ConsumerWidget {
                 height: 20.h,
               ),
               AppSearchBar(
-                func: () => print('Search page'),
+                searchFunc: (search) {
+                  ref
+                      .watch(coursesSearchControllerProvider.notifier)
+                      .searchData(search);
+                },
               ),
               // myProvider.when(
               //   data: (data) => Text(data.toString()),
@@ -40,7 +44,9 @@ class Search extends ConsumerWidget {
                 height: MediaQuery.of(context).size.height,
                 child: switch (searchProvider) {
                   AsyncData(:final value) => value!.isEmpty
-                      ? CircularProgressIndicator()
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
                       : CoursesSearchWidgets(
                           value: value,
                         ),

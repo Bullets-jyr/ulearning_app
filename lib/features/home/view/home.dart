@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widgets/search_widgets.dart';
 import 'package:ulearning_app/features/home/controller/home_controller.dart';
 import 'package:ulearning_app/features/home/view/widgets/home_widget.dart';
+import 'package:ulearning_app/features/search/controller/courses_search_controller.dart';
 
 class Home extends ConsumerStatefulWidget {
   const Home({super.key});
@@ -55,7 +56,9 @@ class _HomeState extends ConsumerState<Home> {
                   height: 20.h,
                 ),
                 AppSearchBar(
-                  func: () => print('Home page'),
+                  searchFunc: (search) {
+                    ref.watch(coursesSearchControllerProvider.notifier).searchData(search);
+                  },
                 ),
                 SizedBox(
                   height: 25.h,

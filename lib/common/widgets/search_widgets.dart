@@ -8,10 +8,12 @@ import 'package:ulearning_app/common/widgets/image_widgets.dart';
 
 class AppSearchBar extends StatelessWidget {
   final VoidCallback? func;
+  void Function(String value)? searchFunc;
 
-  const AppSearchBar({
+  AppSearchBar({
     super.key,
-    required this.func,
+    this.func,
+    this.searchFunc,
   });
 
   @override
@@ -43,6 +45,7 @@ class AppSearchBar extends StatelessWidget {
                 width: 240.w,
                 height: 40.h,
                 child: appTextFieldOnly(
+                  func: searchFunc,
                   width: 240,
                   height: 40,
                   hintText: 'Search your course...',
