@@ -54,7 +54,9 @@ class _HomeState extends ConsumerState<Home> {
                 SizedBox(
                   height: 20.h,
                 ),
-                searchBar(),
+                AppSearchBar(
+                  func: () => print('Home page'),
+                ),
                 SizedBox(
                   height: 25.h,
                 ),
