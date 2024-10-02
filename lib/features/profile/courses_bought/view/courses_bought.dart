@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
+import 'package:ulearning_app/features/profile/courses_bought/controller/courses_bought_controller.dart';
 
-class CoursesBought extends StatelessWidget {
+class CoursesBought extends ConsumerWidget {
   const CoursesBought({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final coursesList = ref.watch(coursesBoughtControllerProvider);
     return Scaffold(
       appBar: buildGlobalAppBar(
         title: 'Your courses',
       ),
-      body: Center(
-        child: Text(
-          'Hello there',
-        ),
-      ),
+      body: switch (coursesList) {
+        AsyncData(:final value) => value == null
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : const Center(
+                child: Text('Hello Riverpod'),
+              ),
+        AsyncError(:final error) => Text('Error $error'),
+        _ => const Center(
+            child: SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                color: Colors.black26,
+                strokeWidth: 2,
+              ),
+            ),
+          ),
+      },
     );
   }
 }
