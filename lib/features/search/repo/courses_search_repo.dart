@@ -4,7 +4,7 @@ import 'package:ulearning_app/common/services/http_util.dart';
 class CoursesSearchRepos {
   static Future<CourseListResponseEntity> coursesDefaultSearch() async {
     var response = await HttpUtil().post(
-      'api/coursesDefaultSearch',
+      'api/coursesBought',
     );
     return CourseListResponseEntity.fromJson(response);
   }

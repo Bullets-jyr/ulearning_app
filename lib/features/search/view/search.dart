@@ -11,7 +11,6 @@ class Search extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final myProvider = ref.watch(coursesSearchControllerProvider);
-
     return Scaffold(
       appBar: buildGlobalAppBar(
         title: 'Search courses',
@@ -31,8 +30,10 @@ class Search extends ConsumerWidget {
               AppSearchBar(
                 func: () => print('Search page'),
               ),
-              Text(
-                myProvider,
+              myProvider.when(
+                data: (data) => Text(data.toString()),
+                error: (e, st) => Text(e.toString()),
+                loading: () => CircularProgressIndicator(),
               ),
             ],
           ),

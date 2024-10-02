@@ -11,14 +11,30 @@ import 'package:ulearning_app/features/search/repo/courses_search_repo.dart';
 //   }
 // }
 
-class CoursesSearchController extends AutoDisposeNotifier<String> {
+// class CoursesSearchController extends AutoDisposeNotifier<String> {
+//   @override
+//   String build() {
+//     // TODO: implement build
+//     return 'JiYoung Ryu loves riverpod';
+//   }
+// }
+
+// final coursesSearchControllerProvider =
+//     AutoDisposeNotifierProvider<CoursesSearchController, String>(
+//         CoursesSearchController.new);
+
+class CoursesSearchController extends AutoDisposeAsyncNotifier<String>{
   @override
-  String build() {
+  FutureOr<String> build() async {
+    final response = await CoursesSearchRepos.coursesDefaultSearch();
+    if (response.code==200) {
+      return 'my data';
+    }
     // TODO: implement build
     return 'JiYoung Ryu loves riverpod';
   }
 }
 
+
 final coursesSearchControllerProvider =
-    AutoDisposeNotifierProvider<CoursesSearchController, String>(
-        CoursesSearchController.new);
+AutoDisposeAsyncNotifierProvider<CoursesSearchController, String>(CoursesSearchController.new);
