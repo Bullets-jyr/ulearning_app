@@ -9,9 +9,12 @@ class CoursesSearchRepos {
     return CourseListResponseEntity.fromJson(response);
   }
 
-  static Future<CourseListResponseEntity> coursesSearch() async {
+  static Future<CourseListResponseEntity> coursesSearch({
+    SearchRequestEntity? params,
+  }) async {
     var response = await HttpUtil().post(
       'api/coursesSearch',
+      queryParameters: params?.toJson(),
     );
     return CourseListResponseEntity.fromJson(response);
   }

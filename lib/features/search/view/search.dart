@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/common/routes/app_routes_names.dart';
-import 'package:ulearning_app/common/utils/app_colors.dart';
-import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/search_widgets.dart';
-import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/features/search/controller/courses_search_controller.dart';
 import 'package:ulearning_app/features/search/view/widget/courses_search_widgets.dart';
 
