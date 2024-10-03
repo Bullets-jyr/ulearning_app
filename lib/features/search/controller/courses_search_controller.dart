@@ -38,6 +38,16 @@ class CoursesSearchController
     return [];
   }
 
+  reloadSearchData() async {
+    final response = await CoursesSearchRepos.coursesDefaultSearch();
+    if (response.code == 200) {
+      state = AsyncValue.data(response.data);
+      return;
+    }
+    // TODO: implement build
+    state = AsyncValue.data([]);
+  }
+
   searchData(String search) async {
     SearchRequestEntity searchRequestEntity = SearchRequestEntity();
     searchRequestEntity.search = search;
