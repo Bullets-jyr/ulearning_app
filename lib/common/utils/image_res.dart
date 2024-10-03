@@ -43,4 +43,5 @@ class ImageRes {
   static const String reminder = '$_imageBase/cube.png';
 
   static const String logOut = '$_imageBase/Logout.png';
+  static const String background = '$_imageBase/background.png';
 }
