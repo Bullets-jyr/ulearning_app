@@ -9,4 +9,5 @@ class AppRoutesNames {
   static const String BUY_COURSE = '/buy_course';
   static const String SETTINGS = '/settings';
   static const String COURSES_BOUGHT = '/courses_bought';
+  static const String AUTHOR_PAGE = '/author_page';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/routes/app_routes_names.dart';
+import 'package:ulearning_app/features/author_page/view/author_page.dart';
 import 'package:ulearning_app/features/buy_course/view/buy_course.dart';
 import 'package:ulearning_app/features/course_detail/view/course_detail.dart';
 import 'package:ulearning_app/features/home/view/home.dart';
@@ -55,6 +56,10 @@ class AppPages {
       RouteEntity(
         path: AppRoutesNames.COURSES_BOUGHT,
         page: const CoursesBought(),
+      ),
+      RouteEntity(
+        path: AppRoutesNames.AUTHOR_PAGE,
+        page: const AuthorPage(),
       ),
     ];
   }

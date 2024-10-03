@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/models/course_entities.dart';
 import 'package:ulearning_app/common/models/lesson_entities.dart';
+import 'package:ulearning_app/common/routes/app_routes_names.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/utils/image_res.dart';
@@ -41,13 +42,21 @@ class CourseDetailIconText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('My course item ${courseItem.user_token.toString()}');
+    // print('My course item ${courseItem.user_token.toString()}');
     return Container(
       margin: EdgeInsets.only(top: 10.h),
       width: 325.w,
       child: Row(
         children: [
           GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushNamed(
+                AppRoutesNames.AUTHOR_PAGE,
+                arguments: {
+                  "token": courseItem.user_token,
+                },
+              );
+            },
             child: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: 15.w,
