@@ -24,8 +24,9 @@ import 'package:ulearning_app/features/search/repo/courses_search_repo.dart';
 //     AutoDisposeNotifierProvider<CoursesSearchController, String>(
 //         CoursesSearchController.new);
 
+// like @Riverpod(keepAlive: true)
 class CoursesSearchController
-    extends AutoDisposeAsyncNotifier<List<CourseItem>?> {
+    extends AsyncNotifier<List<CourseItem>?> {
   @override
   FutureOr<List<CourseItem>?> build() async {
     final response = await CoursesSearchRepos.coursesDefaultSearch();
@@ -51,5 +52,5 @@ class CoursesSearchController
   }
 }
 
-final coursesSearchControllerProvider = AutoDisposeAsyncNotifierProvider<
+final coursesSearchControllerProvider = AsyncNotifierProvider<
     CoursesSearchController, List<CourseItem>?>(CoursesSearchController.new);
