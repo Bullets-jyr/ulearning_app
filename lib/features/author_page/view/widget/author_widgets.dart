@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/app_colors.dart';
@@ -143,35 +142,35 @@ class AuthorTextAndIcon extends StatelessWidget {
   }
 }
 
-// class AuthorDescription extends StatelessWidget {
-//   const AuthorDescription({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: 325.w,
-//       margin: EdgeInsets.only(
-//         top: 10.h,
-//       ),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           const Text16Normal(
-//             text: "About me",
-//             color: AppColors.primaryText,
-//             fontWeight: FontWeight.bold,
-//           ),
-//           Container(
-//             margin: EdgeInsets.only(
-//               top: 8.h,
-//             ),
-//             child: const Text11Normal(
-//               text: "I am a course creator. I love Flutter and React Native",
-//               color: AppColors.primaryThirdElementText,
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+class AuthorDescription extends StatelessWidget {
+  const AuthorDescription({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 325.w,
+      margin: EdgeInsets.only(
+        top: 10.h,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text16Normal(
+            text: "About me",
+            color: AppColors.primaryText,
+            fontWeight: FontWeight.bold,
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              top: 8.h,
+            ),
+            child: const Text11Normal(
+              text: "I am a course creator. I love Flutter and React Native",
+              color: AppColors.primaryThirdElementText,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

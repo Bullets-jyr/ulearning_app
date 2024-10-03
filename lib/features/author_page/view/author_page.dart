@@ -32,15 +32,15 @@ class _AuthorPageState extends State<AuthorPage> {
         child: Column(
           children: [
             const AuthorMenu(),
-            // const AuthorDescription(),
-            // SizedBox(height: 20.h,),
+            const AuthorDescription(),
+            SizedBox(height: 20.h,),
             //go chat button
-            // AppButton(
-            //   buttonName: "Go Chat",
-            //   func: (){
-            //     print("I am tapped");
-            //   },
-            // ),
+            AppButton(
+              buttonName: "Go Chat",
+              func: (){
+                print("I am tapped");
+              },
+            ),
           ],
         ),
       ),
