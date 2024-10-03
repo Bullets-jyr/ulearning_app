@@ -8,8 +8,8 @@ import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_textfields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/features/sign_up/provider/register_notifier.dart';
 import 'package:ulearning_app/features/sign_up/controller/sign_up_controller.dart';
+import 'package:ulearning_app/features/sign_up/provider/register_notifier.dart';
 
 class SignUp extends ConsumerStatefulWidget {
   const SignUp({super.key});
@@ -62,7 +62,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         height: 50.h,
                       ),
                       // user name text box
-                      appTextField(
+                      AppTextField(
                         text: 'User name',
                         iconName: ImageRes.user,
                         hintText: 'Enter your user name',
@@ -74,7 +74,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         height: 20,
                       ),
                       // email text box
-                      appTextField(
+                      AppTextField(
                         text: 'Email',
                         iconName: ImageRes.user,
                         hintText: 'Enter your email address',
@@ -86,7 +86,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         height: 20,
                       ),
                       // password text box
-                      appTextField(
+                      AppTextField(
                         text: 'Password',
                         iconName: ImageRes.lock,
                         hintText: 'Enter your password',
@@ -99,7 +99,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         height: 20,
                       ),
                       // password text box
-                      appTextField(
+                      AppTextField(
                         text: 'Confirm Password',
                         iconName: ImageRes.lock,
                         hintText: 'Confirm your password',

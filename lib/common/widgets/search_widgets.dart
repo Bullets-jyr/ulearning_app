@@ -44,7 +44,7 @@ class AppSearchBar extends StatelessWidget {
               SizedBox(
                 width: 240.w,
                 height: 40.h,
-                child: appTextFieldOnly(
+                child: AppTextFieldOnly(
                   func: searchFunc,
                   width: 240,
                   height: 40,

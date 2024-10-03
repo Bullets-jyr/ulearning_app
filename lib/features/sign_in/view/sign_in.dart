@@ -7,8 +7,8 @@ import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_textfields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/features/sign_in/provider/sign_in_notifier.dart';
 import 'package:ulearning_app/features/sign_in/controller/sign_in_controller.dart';
+import 'package:ulearning_app/features/sign_in/provider/sign_in_notifier.dart';
 import 'package:ulearning_app/features/sign_in/view/widgets/sign_in_widgets.dart';
 
 class SignIn extends ConsumerStatefulWidget {
@@ -76,7 +76,7 @@ class _SignInState extends ConsumerState<SignIn> {
                         height: 50,
                       ),
                       // email text box
-                      appTextField(
+                      AppTextField(
                         // Fix sign in text field issues
                         controller: _controller.emailController,
                         text: 'Email',
@@ -90,7 +90,7 @@ class _SignInState extends ConsumerState<SignIn> {
                         height: 20,
                       ),
                       // password text box
-                      appTextField(
+                      AppTextField(
                         controller: _controller.passwordController,
                         text: 'Password',
                         iconName: ImageRes.lock,

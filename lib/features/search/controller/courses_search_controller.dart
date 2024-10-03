@@ -32,6 +32,7 @@ class CoursesSearchController
     if (response.code == 200) {
       return response.data;
     }
+    // state = AsyncValue.data([]);
     // TODO: implement build
     return [];
   }
