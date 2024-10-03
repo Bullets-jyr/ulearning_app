@@ -150,6 +150,7 @@ class AppTextField extends StatelessWidget {
 class AppTextFieldOnly extends StatelessWidget {
   final TextEditingController? controller;
   final String hintText;
+  final bool? search;
   final double width;
   final double height;
   final void Function(String value)? func;
@@ -159,6 +160,7 @@ class AppTextFieldOnly extends StatelessWidget {
     super.key,
     this.controller,
     this.hintText = 'Type in your info',
+    this.search = false,
     this.width = 280,
     this.height = 50,
     this.func,
@@ -172,7 +174,9 @@ class AppTextFieldOnly extends StatelessWidget {
       height: height.h,
       child: TextField(
         controller: controller,
-        onChanged: (value) => func!(value),
+        onChanged: search == false ? (value) => func!(value) : null,
+        onSubmitted: search == true ? (value) => func!(value) : null,
+        textInputAction: TextInputAction.search,
         keyboardType: TextInputType.multiline,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(
