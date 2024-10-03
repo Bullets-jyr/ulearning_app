@@ -41,6 +41,7 @@ class CourseDetailIconText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('My course item ${courseItem.user_token.toString()}');
     return Container(
       margin: EdgeInsets.only(top: 10.h),
       width: 325.w,
